@@ -6,28 +6,37 @@ const Signup = () => {
   const [show, setShow] = useState(false);
   const inputtwo = useRef();
   const inputthree = useRef();
+  const inputforComp = useRef();
+  const inputforUser = useRef();
 
-  const handleClose = async (event) => {
-    event.preventDefault();
-    const response = await fetch('http://localhost:2500/registrate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({
-        username: inputtwo.current.value,
-        password: inputthree.current.value,
-      }),
 
-    });
-    const text = await response.json();
+  const handleClose = () => {
+    console.log(inputforComp.current.value);
 
-    window.location.assign('/')
+  //   async function fetchUserData() {
+  //     const response = await fetch('http://localhost:4000/api/auth', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       credentials: 'include',
+  //       body: JSON.stringify({
+  //         userEmail: inputtwo.current.value,
+  //         userPassword: inputthree.current.value,
+  //         role: inputfor.current.value,
+  //       }),
+  
+  //     });
+  //     const text = await response.json();
+  //     console.log(text);
+  //   }
+  //   fetchUserData()
 
-    console.log(text);
 
-    setShow(false);
+    // window.location.assign('/')
+
+    // console.log(text);
+
+    // setShow(false);
   };
-
 
   return (
   <div id="openRega" className="signup">
@@ -38,9 +47,11 @@ const Signup = () => {
         <a href="/" title="Close" className="close">×</a>
       </div>
       <div className="signup-body">    
-        <input ref={inputtwo} type='text' className='pols' name='userName' placeholder='Введите e-mail'/>
+        <input ref={inputtwo} type='text' className='pols' name='userEmail' placeholder='Введите e-mail'/>
         <input ref={inputthree} type='password' className='pols' name='userPassword' placeholder='Придумайте пароль'/>
-        <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/>
+        {/* <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/> */}
+        <label htmlFor="contactChoice1"><input ref={inputforComp} type="radio" id="contactChoice1" name="company" value="company" defaultChecked/>Компания</label>
+        <label htmlFor="contactChoice2"><input ref={inputforUser} type="radio" id="contactChoice2" name="user" value="user" defaultChecked/>Пользователь</label>
         <button onClick={handleClose} type='button' className='click' name='authBatton'>Зарегистрироваться</button>
       </div>
     </div>

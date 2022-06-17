@@ -38,7 +38,7 @@
 }
 @media (min-width: 576px) {
 .signup-dialog {
-    max-width: 500px;
+    max-width: 600px;
     margin: 150px auto; /* для отображения модального окна по центру */
 }
 }
@@ -117,9 +117,9 @@
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
-  height: 250px;
+  height: 350px;
   flex: 1 1 auto;
-  padding: 15px;
+  padding: 35px;
   overflow: auto;
   flex-direction: column;
   justify-content: space-evenly;

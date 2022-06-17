@@ -2,15 +2,15 @@ const regRouter = require('express').Router();
 const bcrypt = require('bcryptjs');
 const { User } = require('../db/models');
 
-regRouter.route('/api/signup')
+regRouter.route('/')
   .post(async (req, res) => {
-    const { username, password } = req.body;
-    const user = await User.findOne({ where: { username } });
+    const { userEmail, userPassword, role } = req.body;
+    const user = await User.findOne({ where: { email: userEmail } });
     if (user) {
       res.send('Такой  уже зарегистрирован');
     } else {
       const newUser = await User.create({
-        username, password: await bcrypt.hash(password, 7),
+        email: userEmail, password: await bcrypt.hash(userPassword, 7), role,
       });
       req.session.user = newUser;
       res.send(newUser);

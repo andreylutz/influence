@@ -7,6 +7,7 @@ const app = express();
 const mainConfig = require('./config/config');
 
 const mainRoute = require('./routes/main.router');
+const regRouter = require('./routes/reg.routes');
 
 const { sequelize } = require('./db/models');
 
@@ -15,6 +16,7 @@ const PORT = process.env.PORT ?? 4000;
 mainConfig(app);
 
 app.use('/', mainRoute);
+app.use('/api/auth', regRouter);
 
 app.listen(PORT, async () => {
   console.log('Веб-сервер слушает порт', PORT);
