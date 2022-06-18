@@ -1,10 +1,14 @@
 import { Provider } from 'react-redux';
+
+// import { Events } from './components/Events';
+import NavBar from './components/nav/NavBar';
+import SideBar from './components/nav/SideBar';
+
 import {
   // Outlet,
   Route,
   Routes
 } from 'react-router-dom';
-
 
 // React components (JSX)
 import UserProfile from './components/UserProfile/UserProfile';
@@ -17,8 +21,13 @@ import UserStatus from './components/UserProfile/UserStatus';
 import store from './store';
 
 function App() {
+  const user = true;
   return (
     <Provider store={store}>
+
+      <div className='mainDiv'>
+      <NavBar/>
+      {user && <SideBar/>}
       <Routes>
         <Route path="/" element={<UserProfile />}>
           <Route path="/status" element={<UserStatus />} />
@@ -28,6 +37,9 @@ function App() {
           <Route path="membership" element={<UserMembership />} />
         </Route>
       </Routes>
+
+      </div>
+
     </Provider>
   );
 }
