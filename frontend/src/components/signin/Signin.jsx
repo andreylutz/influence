@@ -3,7 +3,7 @@ import './signin.css';
 
 const Signin = () => {
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);// не используем show модельные окна
   const inputtwo = useRef();
   const inputthree = useRef();
   
