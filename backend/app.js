@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 const mainConfig = require('./config/config');
 
-const mainRoute = require('./routes/main.router');
+const mainRoute = require('./routes/main.routes');
 
 const eventRouter = require('./routes/event.routes');
 const regRouter = require('./routes/reg.routes');
