@@ -1,5 +1,5 @@
 import { instance } from './index';
-import { actionsUser } from '../actions/users';
+import { actionsUser } from '../actions/actionsUser';
 
 export const registration = (username, email, password) => {
   return async (dispatch) => {
