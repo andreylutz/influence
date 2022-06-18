@@ -10,6 +10,7 @@ export default function UserProfile() {
   return (
     <>
       <UserStatic />
+      
       <Outlet />
     </>
   )
