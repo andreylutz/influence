@@ -1,8 +1,8 @@
 import React from 'react';
-import Signup from './signup/Signup';
-import Signin from './signin/Signin';
+import Signup from './Signup/Signup';
+import Signin from './Signin/Signin';
 
-export const Events = () => {
+export const Main = () => {
 
   const handleClose = () => {
     fetch('http://localhost:4000/api/logout', {

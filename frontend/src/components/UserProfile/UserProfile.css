@@ -23,8 +23,8 @@ a {
 }
 
 .upper__content {
+  position: relative;
   height: 220px;
-  /* padding: 5px; */
   margin-bottom: 15px;
   background-color: rgb(225, 225, 225);
   border-radius: 19px;
@@ -47,8 +47,9 @@ a {
 
 .lower__content-leftBox {
   display: flex;
-  padding-left: 123px;
+  padding-left: 130px;
   margin-bottom: 40px;
+  margin-right: 20px;
 }
 
 .user__span {
@@ -57,8 +58,8 @@ a {
 
 .left-box__photo {
   position: absolute;
-  top: 216px;
-  left: 60px;
+  top: 186px;
+  left: 20px;
   margin-right: 20px;
   background-image: url('https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg');
   background-size: cover;

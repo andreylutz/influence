@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-  // Outlet,
   Route,
   Routes
 } from 'react-router-dom';
@@ -12,19 +11,29 @@ import UserEvents from './UserEvents';
 import UserMyEvents from './UserMyEvents';
 import UserFriends from './UserFriends'
 import UserMembership from './UserMembership';
-import UserStatus from './UserStatus'
+import UserStatus from './UserStatus';
+import Contacts from '../Contacts/Contacts';
+import Events from '../Events/Events';
+import MyEvents from '../MyEvents/MyEvents';
+import Influencers from '../Influencers/Influencers';
+
+
 
 export default function Works() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<UserProfile />}>
-          <Route path="/status" element={<UserStatus />} />
-          <Route path="events" element={<UserEvents />} />
-          <Route path="myevents" element={<UserMyEvents />} />
-          <Route path="friends" element={<UserFriends />} />
-          <Route path="membership" element={<UserMembership />} />
+          <Route path="/info" element={<UserStatus />} />
+          <Route path="/events" element={<UserEvents />} />
+          <Route path="/myevents" element={<UserMyEvents />} />
+          <Route path="/friends" element={<UserFriends />} />
+          <Route path="/membership" element={<UserMembership />} />
         </Route>
+        <Route path="/event" element={<Events />} />
+        <Route path="/myevent" element={<MyEvents />} />
+        <Route path="/influencers" element={<Influencers />} />
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
     </div>
   )
