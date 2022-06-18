@@ -8,10 +8,11 @@ import SideBar from './components/nav/SideBar';
 import store from './store';
 
 function App() {
+  const user = true;
   return (
     <Provider store={store}>
       <NavBar/>
-      <SideBar/>
+      {user && <SideBar/>}
       <Routes>
         <Route path="/" element={<Events />} />
       </Routes>
