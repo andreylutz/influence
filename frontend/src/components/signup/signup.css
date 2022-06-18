@@ -14,7 +14,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0,0,0,0.5); /* цвет фона */
+  /* background: rgba(0,0,0,0.5); */
   z-index: 1050;
   opacity: 0; /* по умолчанию модальное окно прозрачно */
   -webkit-transition: opacity 200ms ease-in; 
@@ -28,7 +28,6 @@
 .signup:target {
   opacity: 1; /* делаем окно видимым */
   pointer-events: auto; /* элемент видим для событий мыши */
-  overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
 }
 /* ширина модального окна и его отступы от экрана */
 .signup-dialog {
@@ -54,18 +53,27 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: rgba(191, 241, 226);
+  background: inherit;
+  /* background-color: rgba(191, 241, 226); */
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  border: 1px solid rgba(0,0,0,.2);
+  border: 1px solid rgba(43, 43, 43, 0.568);
   border-radius: .3rem;
   outline: 0;
+
+  height: 400px;
+  width: 620px;
+  background: inherit;
+  border-radius: 15px;
+  border: 1px solid rgba(43, 43, 43, 0.568);
+  position: absolute;
 }
+
 @media (min-width: 768px) {
-.signup-content {
+  .signup-content {
     -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
-}
+  }
 }
 /* свойства для заголовка модального окна */
 .signup-header {

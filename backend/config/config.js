@@ -13,16 +13,15 @@ const sessionConfig = {
   saveUninitialized: false,
   cookie: {
     maxAge: 1000 * 60 * 60 * 12,
-    httpOnly: true,
   },
 };
 
 const config = (app) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(session(sessionConfig));
-  app.use(cookieParser());
   app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+  app.use(cookieParser());
+  app.use(session(sessionConfig));
 };
 
 module.exports = config;

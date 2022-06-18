@@ -3,17 +3,15 @@ import './signup.css';
 
 const Signup = () => {
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);// не используем show модельные окна
   const inputtwo = useRef();
   const inputthree = useRef();
   const inputfor = useRef();
 
 
-  const handleClose = (event) => {
+  const handleClose =  async (event) => {
     event.preventDefault();
-
-    async function fetchUserData() {
-      const response = await fetch('http://localhost:4000/api/auth', {
+      const response = await fetch('http://localhost:4000/api/reg', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -22,15 +20,12 @@ const Signup = () => {
           userPassword: inputthree.current.value,
           role: inputfor.current.value,
         }),
-  
       });
       const text = await response.json();
+      window.location.assign('/');
       console.log(text);
+      setShow(false);
     }
-    fetchUserData()
-    window.location.assign('/')
-    setShow(false);
-  };
 
   return (
   <div id="openRega" className="signup">
@@ -43,7 +38,7 @@ const Signup = () => {
       <div className="signup-body">    
         <input ref={inputtwo} type='text' className='pols' name='userEmail' placeholder='Введите e-mail'/>
         <input ref={inputthree} type='password' className='pols' name='userPassword' placeholder='Придумайте пароль'/>
-        <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/>
+        {/* <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/> */}
         <select ref={inputfor} className='selectorius' name="role">
           <option value="user">Ваш статус в проекте USER</option>
           <option value="company">Ваш статус в проекте COMPANY</option>

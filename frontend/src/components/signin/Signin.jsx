@@ -10,19 +10,19 @@ const Signin = () => {
 
   const handleClose = async (event) => {
     event.preventDefault();
-
-    const response = await fetch('http://localhost:2500/auth', {
+  
+    const response = await fetch('http://localhost:4000/api/auth', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       body: JSON.stringify({
-        username: inputtwo.current.value,
+        userEmail: inputtwo.current.value,
         password: inputthree.current.value,
       }),
-      headers: { 'Content-Type': 'application/json' },
-
     });
     const text = await response.json();
     window.location.assign('/')
-    console.log(text);
+    console.log(text)
     setShow(false);
   };
 
@@ -35,8 +35,8 @@ const Signin = () => {
         <a href="/" title="Close" className="close">×</a>
       </div>
       <div className="signin-body">
-        <input ref={inputtwo} type='e-mail' className='pols' name='userName' placeholder='Введите e-mail'/>
-        <input ref={inputthree} type='password' className='pols' name='userPassword' placeholder='Введите пароль'/>
+        <input ref={inputtwo} type='e-mail' className='pols' name='userEmail' placeholder='Введите e-mail'/>
+        <input ref={inputthree} type='password' className='pols' name='password' placeholder='Введите пароль'/>
         <button onClick={handleClose} type='button' className='click' name='authBatton'>Войти</button>
       </div>
     </div>

@@ -1,13 +1,13 @@
-const router = require('express').Router();
+const logoutRoutes = require('express').Router();
 
-router.get('/', (req, res) => {
+logoutRoutes.get('/', (req, res) => {
   try {
     req.session.destroy();
-    res.clearCookie('user_sid');
+    res.clearCookie('sid');
     res.redirect('/');
   } catch (error) {
-    res.send('chtoto');
+    res.send('no delete sessions!!!');
   }
 });
 
-module.exports = router;
+module.exports = logoutRoutes;
