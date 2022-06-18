@@ -9,9 +9,15 @@ a {
 }
 
 .headerContainer {
-  background-color:rgba(0, 255, 85, 0.392);
-  padding: 0 50px;
-  border-bottom: 2px solid black;
+  padding: 5px 50px;
+  height: 65px;
+  border: 1px solid black;
+}
+
+.first__nav {
+  background-color: rgb(237, 237, 237);
+  padding: 25px 10px 20px 15px;
+  border-radius: 19px;
 }
 
 .ulBar {
@@ -24,19 +30,22 @@ a {
 }
 
 .sideBarContainer {
-  background-color: gray;
-  width: 150px;
+  padding: 20px;
+  max-width: 250px;
   height: 700px;
-  padding: 50px 0;
-  border-right: 2px solid black;
+  border-right: 1px solid black;
 }
 
-.ulSideBar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  list-style-type: none;
+.ulSideBar li {
+  margin-bottom: 24px;
 }
 
+.navSideBar__title {
+  margin-bottom: 15px;
+  color: rgb(169, 169, 169);
+}
 
+.ulSideBar li a {
+  font-weight: bolder;
+  color: rgb(110, 110, 110);
+}
