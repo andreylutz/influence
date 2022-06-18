@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.headerContainer {
+  padding: 5px 50px;
+  height: 65px;
+  border: 1px solid black;
+}
+
+.first__nav {
+  background-color: rgb(237, 237, 237);
+  padding: 25px 10px 20px 15px;
+  border-radius: 19px;
+}
+
+.ulBar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+  height: 50px;
+  list-style-type: none;
+}
+
+.sideBarContainer {
+  padding: 20px;
+  max-width: 250px;
+  height: 700px;
+  border-right: 1px solid black;
+}
+
+.ulSideBar li {
+  margin-bottom: 24px;
+}
+
+.navSideBar__title {
+  margin-bottom: 15px;
+  color: rgb(169, 169, 169);
+}
+
+.ulSideBar li a {
+  font-weight: bolder;
+  color: rgb(110, 110, 110);
+}

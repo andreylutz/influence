@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.userProfile__container {
+  padding: 16px;
+  padding-bottom: 20px;
+  background-color: rgb(236, 236, 236);
+}
+
+.upper_container {
+  padding: 20px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+
+.upper__content {
+  height: 220px;
+  /* padding: 5px; */
+  margin-bottom: 15px;
+  background-color: rgb(225, 225, 225);
+  border-radius: 19px;
+}
+
+.upper__content img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+  border-bottom-left-radius: 19px;
+  border-bottom-right-radius: 19px;
+}
+
+.lower__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lower__content-leftBox {
+  display: flex;
+  padding-left: 123px;
+  margin-bottom: 40px;
+}
+
+.user__span {
+  color: rgb(161, 161, 161);
+}
+
+.left-box__photo {
+  position: absolute;
+  top: 216px;
+  left: 60px;
+  margin-right: 20px;
+  background-image: url('https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  clip-path: circle(50%);
+  height: 5em;
+  width: 5em;
+}
+
+.addFriend__button {
+  width: 150px;
+  height: 39px;
+  border-radius: 7px;
+
+}
+
+.settings__button {
+  width: 100px;
+  height: 39px;
+  margin-left: 10px;
+  border-radius: 7px;
+}
+
+button {
+  transition: .3s;
+}
+
+button:hover {
+  background-color: rgb(227, 227, 227);
+  transition: .3s;
+}
+
+.nav__content {
+  padding-left: 10px
+}
+
+.lower__content-nav {
+  height: 20px;
+  background-color: #fff;
+}
+
+
+.navigation__list {
+  display: flex;
+}
+
+.navigation__list-item {
+  margin-right: 30px;
+}
+
+.navigation__link {
+  font-size: 17px;
+  font-weight: bold;
+  color: rgb(62, 62, 62);
+  transition: .3s
+}
+
+.navigation__link:hover {
+  color: rgb(193, 193, 193);
+  transition: .3s
+}
+
+
+
+
+/* User__status */
+
+.user__status-container {
+  min-height: 50vh;
+  padding-left: 16px;
+  background-color: rgb(236, 236, 236);
+}
+
+.user__status-box {
+  max-width: 300px;
+  min-height: 250px;
+  padding: 20px 20px 20px 30px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+
+.user__status-about {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
