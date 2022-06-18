@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { getMyEvents } from '../../store/reducers/myEvent.reducer';
+import { getMyEvents } from '../../api/myEvents';
 
 import { MyEvent } from '../MyEvent/MyEvent';
 import './MyEvents.css';

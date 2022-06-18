@@ -1,6 +1,6 @@
 const initialState = {};
 
-export const myEventReducer = (state = initialState, action) => {
+const myEventReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_EVENTS':
       return action.payload;
@@ -10,3 +10,5 @@ export const myEventReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default myEventReducer;

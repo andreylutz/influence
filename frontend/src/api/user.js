@@ -4,7 +4,7 @@ import { actionsUser } from '../actions/users';
 export const registration = (username, email, password) => {
   return async (dispatch) => {
     try {
-      await instance.post(`users/create/`, {
+      await instance.post(`/api/reg/`, {
         username,
         email,
         password,
