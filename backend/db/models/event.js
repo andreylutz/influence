@@ -1,6 +1,4 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Event extends Model {
@@ -16,14 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  Event.init({
-    name: DataTypes.TEXT,
-    location: DataTypes.TEXT,
-    picture: DataTypes.TEXT,
-    date: DataTypes.DATE,
-  }, {
-    sequelize,
-    modelName: 'Event',
-  });
+  Event.init(
+    {
+      name: DataTypes.TEXT,
+      description: DataTypes.TEXT,
+      location: DataTypes.TEXT,
+      picture: DataTypes.TEXT,
+      date: DataTypes.DATE,
+    },
+    {
+      sequelize,
+      modelName: 'Event',
+    }
+  );
   return Event;
 };
