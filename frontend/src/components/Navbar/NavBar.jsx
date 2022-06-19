@@ -15,8 +15,8 @@ function NavBar() {
               </>
               :
               <>
-                <li><Link to="/">Регистрация</Link></li>
-                <li><Link to="/">Войти</Link></li>
+                <li><Link to="/">Выйти</Link></li>
+                <li><Link to="/">Мои настройки</Link></li>
               </>
           }
 

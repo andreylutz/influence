@@ -33,7 +33,6 @@ a {
   padding: 20px;
   max-width: 250px;
   height: 700px;
-  border-right: 1px solid black;
 }
 
 .ulSideBar li {
@@ -49,3 +48,21 @@ a {
   font-weight: bolder;
   color: rgb(110, 110, 110);
 }
+
+.fb-first {
+  min-width: 250px;
+}
+
+.fb-second {
+  width: 950px;
+}
+
+/* .fb-third {
+  width: 200px;
+} */
+
+.aside__conteiner {
+  padding: 20px;
+}
+
+

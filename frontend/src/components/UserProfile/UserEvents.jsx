@@ -1,5 +1,6 @@
 import React from 'react'
 
+// React Components
 import EventItem from './EventItem'
 
 
