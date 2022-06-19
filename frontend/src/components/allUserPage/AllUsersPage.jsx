@@ -24,7 +24,7 @@ function AllUsersPage() {
   // ];
   const dispatch = useDispatch();
   const allUsers = useSelector((state) => state.settings.list);
-  console.log(allUsers);
+  console.log('====>', allUsers);
   const roleUser = 'user';
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function AllUsersPage() {
     <div className="allUsersBlock" >
       {
         allUsers.map((oneUser) => (
-          (oneUser.role === 'bissiness') ?
+          (oneUser.role === 'user') ?
             <OneUserCard key={oneUser.id} oneUser={oneUser} />
             :
             <OneCompanyCard key={oneUser.id} oneCompany={oneUser}/>

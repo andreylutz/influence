@@ -36,9 +36,6 @@ module.exports = (sequelize, DataTypes) => {
     location: {
       type: DataTypes.TEXT,
     },
-    skill: {
-      type: DataTypes.TEXT,
-    },
     user_id: {
       allowNull: false,
       type: DataTypes.INTEGER,

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ User }) {
       Event.Users = Event.belongsToMany(User, {
         foreignKey: 'event_id',
-        through: 'UserEvent',
+        through: 'UserEvents',
       });
     }
   }
