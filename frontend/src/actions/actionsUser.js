@@ -4,6 +4,6 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const actionsUser = {
   initUser: () => ({ type: INIT_USER }),
-  setUser: () => ({ type: SET_USER }),
+  setUser: (user) => ({ type: SET_USER, payload: user }),
   logout: () => ({ type: LOGOUT_USER }),
 };

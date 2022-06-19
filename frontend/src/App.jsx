@@ -1,22 +1,17 @@
-// React-Redux
-import { Provider } from 'react-redux';
-
 // React Components
+import { useSelector } from 'react-redux';
 import NavBar from './components/Navbar/NavBar';
 import SideBar from './components/Navbar/SideBar';
 import { Main } from './components/Main';
 
-import store from './store';
-
 function App() {
-  const user = true;
+  const user = useSelector((state) => state.user.auth);
+
   return (
-
-    <Provider store={store}>
-      {(!user) ? <Main /> : <NavBar />}
+    <>
+      {!user ? <Main /> : <NavBar />}
       {user && <SideBar />}
-    </Provider>
-
+    </>
   );
 }
 

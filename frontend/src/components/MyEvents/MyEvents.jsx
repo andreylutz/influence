@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getMyEvents } from '../../api/myEvents';
-import { MyEvent } from '../MyEvent/MyEvent';
+import MyEvent from '../MyEvent/MyEvent';
 import './MyEvents.css';
 
 export const MyEvents = () => {
@@ -23,3 +23,4 @@ export const MyEvents = () => {
   );
 };
 
+export default MyEvents;
