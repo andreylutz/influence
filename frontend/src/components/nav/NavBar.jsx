@@ -10,7 +10,7 @@ function NavBar() {
           {
             user ?
           <><li><Link to="/">Главная</Link></li>
-          <li><Link to="/">Настройки</Link></li></>
+          <li><Link to="/userEdit">Настройки</Link></li></>
           :
           <li><Link to="/">Зарегистрироваться</Link></li>
           }

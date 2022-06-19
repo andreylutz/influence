@@ -17,8 +17,11 @@ import UserMyEvents from './components/UserProfile/UserMyEvents';
 import UserFriends from './components/UserProfile/UserFriends'
 import UserMembership from './components/UserProfile/UserMembership';
 import UserStatus from './components/UserProfile/UserStatus';
+import AllUsersPage from './components/allUserPage/AllUsersPage';
+import UserEditPage from './components/UserEditPage/UserEditPage';
 
 import store from './store';
+
 
 function App() {
   const user = true;
@@ -36,6 +39,10 @@ function App() {
           <Route path="friends" element={<UserFriends />} />
           <Route path="membership" element={<UserMembership />} />
         </Route>
+
+        <Route path="/allUsers" element={<AllUsersPage/>}/>
+        <Route path="/userEdit" element={<UserEditPage/>}/>
+
       </Routes>
 
       </div>
