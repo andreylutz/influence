@@ -1,6 +1,6 @@
 import React from 'react';
-import Signup from '../signup/Signup';
-import Signin from '../signin/Signin';
+import Signup from '../Signup/Signup';
+import Signin from '../Signin/Signin';
 import styles from './Main.module.css';
 
 const Main = () => {
@@ -76,22 +76,47 @@ const Main = () => {
       <Signin />
 
       <nav className={styles.navMain}>
-        <a className={styles.cipher} id={styles.navTwo} href="#openAuth">Авторизация</a>
+        <a className={styles.cipher} id={styles.navTwo} href="#openAuth">
+          Авторизация
+        </a>
         <hr />
-        <a className={styles.cipher} id={styles.nav} href="#openRega">Регистрация</a>
+        <a className={styles.cipher} id={styles.nav} href="#openRega">
+          Регистрация
+        </a>
       </nav>
       <div className={`${styles.row} ${styles.rowBackground} ${styles.skew}`}>
         <div className={styles.column}>
           <h2>Title</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus hic voluptate nulla architecto atque asperiores, exercitationem repellendus at? In esse debitis aspernatur fuga error quae dolorum harum sit! Voluptatibus, quos.</p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur
+            facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe
+            perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus
+            hic voluptate nulla architecto atque asperiores, exercitationem repellendus
+            at? In esse debitis aspernatur fuga error quae dolorum harum sit!
+            Voluptatibus, quos.
+          </p>
         </div>
       </div>
 
       <div className={styles.row}>
         <div className={styles.column}>
           <h2>Title</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus hic voluptate nulla architecto atque asperiores, exercitationem repellendus at? In esse debitis aspernatur fuga error quae dolorum harum sit! Voluptatibus, quos.</p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus hic voluptate nulla architecto atque asperiores, exercitationem repellendus at? In esse debitis aspernatur fuga error quae dolorum harum sit! Voluptatibus, quos.</p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur
+            facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe
+            perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus
+            hic voluptate nulla architecto atque asperiores, exercitationem repellendus
+            at? In esse debitis aspernatur fuga error quae dolorum harum sit!
+            Voluptatibus, quos.
+          </p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur
+            facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe
+            perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus
+            hic voluptate nulla architecto atque asperiores, exercitationem repellendus
+            at? In esse debitis aspernatur fuga error quae dolorum harum sit!
+            Voluptatibus, quos.
+          </p>
         </div>
       </div>
 
@@ -103,14 +128,20 @@ const Main = () => {
             </div>
             <div className={styles.mediaContent}>
               <h2>Title</h2>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus hic voluptate nulla architecto atque asperiores, exercitationem repellendus at? In esse debitis aspernatur fuga error quae dolorum harum sit! Voluptatibus, quos.</p>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum
+                consectetur facilis laboriosam cum soluta. Facilis eos, eveniet
+                repellendus eius saepe perferendis! Dolores minus ratione accusantium? Et
+                modi mollitia, temporibus hic voluptate nulla architecto atque asperiores,
+                exercitationem repellendus at? In esse debitis aspernatur fuga error quae
+                dolorum harum sit! Voluptatibus, quos.
+              </p>
             </div>
           </div>
         </div>
       </div>
-
     </>
-  )
+  );
 };
 
 export default Main;
