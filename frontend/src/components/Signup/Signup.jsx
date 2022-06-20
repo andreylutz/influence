@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { actionsUser } from '../../actions/actionsUser';
 
-import './signup.css';
+import './signup.css';// feprf
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ const Signup = () => {
           <div className="signup-body">
             <input
               ref={inputtwo}
-              type="text"
+              type="email"
               className="pols"
               name="userEmail"
               placeholder="Введите e-mail"

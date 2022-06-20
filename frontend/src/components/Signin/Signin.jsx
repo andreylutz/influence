@@ -15,14 +15,13 @@ const Signin = () => {
 
   const handleClose = async (event) => {
     event.preventDefault();
-
     const response = await fetch('http://localhost:4000/api/auth', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       body: JSON.stringify({
         userEmail: inputtwo.current.value,
-        password: inputthree.current.value,
+        userPassword: inputthree.current.value,
       }),
     });
     const user = await response.json();
@@ -47,7 +46,7 @@ const Signin = () => {
           <div className="signin-body">
             <input
               ref={inputtwo}
-              type="e-mail"
+              type="email"
               className="pols"
               name="userEmail"
               placeholder="Введите e-mail"
@@ -56,7 +55,7 @@ const Signin = () => {
               ref={inputthree}
               type="password"
               className="pols"
-              name="password"
+              name="userPassword"
               placeholder="Введите пароль"
             />
             <button
