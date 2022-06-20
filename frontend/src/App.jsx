@@ -8,6 +8,7 @@ import { Main } from './components/Main';
 
 import store from './store';
 
+
 function App() {
   const user = true;
   return (
