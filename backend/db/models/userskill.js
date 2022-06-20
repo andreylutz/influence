@@ -14,8 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserSkill.init({
-    skill_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    skill_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Skills',
+        key: 'id',
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
+    },
   }, {
     sequelize,
     modelName: 'UserSkill',

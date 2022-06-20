@@ -1,0 +1,9 @@
+.divFormUserEdit {
+  display: flex;
+  justify-content: center;
+}
+
+.ulUserEdit {
+  display: flex;
+  flex-direction: column;
+}

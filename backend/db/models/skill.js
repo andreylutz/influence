@@ -12,13 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ User }) {
       Skill.Users = Skill.belongsToMany(User, {
         foreignKey: 'skill_id',
-        through: 'UserSkill',
+        through: 'UserSkills',
       });
     }
   }
   Skill.init({
     name: DataTypes.TEXT,
-    user_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Skill',

@@ -13,7 +13,8 @@ import UserFriends from './UserFriends'
 import UserMembership from './UserMembership';
 import UserStatus from './UserStatus';
 import Contacts from '../Contacts/Contacts';
-import Influencers from '../Influencers/Influencers';
+import AllUsersPage from '../allCategoriesPage/AllCategoriesPage';
+import UserEditPage from '../UserEditPage/UserEditPage';
 
 
 
@@ -30,8 +31,9 @@ export default function Works() {
         </Route>
         {/* <Route path="/event" element={<Events />} /> */}
         {/* <Route path="/myevent" element={<MyEvents />} /> */}
-        <Route path="/influencers" element={<Influencers />} />
+        <Route path="/influencers" element={<AllUsersPage />} />
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/userEdit" element={<UserEditPage />} />
         
       </Routes>
     </div >
