@@ -34,7 +34,7 @@ authRouter.post('/', async (req, res) => {
     return;
   }
   req.session.user = user;
-  res.send(user);
+  res.json({ user: user.email, role: user.role });
 });
 
 module.exports = authRouter;

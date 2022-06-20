@@ -9,7 +9,7 @@ const userReducer = (state = initialState, action) => {
     case SET_USER:
       return { ...state, email: action.payload, role: action.payload };
     case LOGOUT_USER:
-      return { ...state, auth: false };
+      return { ...state, auth: false, email: '', role: '' };
     default:
       return state;
   }

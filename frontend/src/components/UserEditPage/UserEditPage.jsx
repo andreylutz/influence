@@ -1,7 +1,7 @@
 import UserFormEdit from "./UserFormEdit";
 import CompanyFormEdit from "./CompanyFormEdit";
 function UserEditPage() {
-  const roleUser = 'user';
+  const roleUser = 'company';
   return (
     <div>
       <h1>Страница для внесения данных</h1>

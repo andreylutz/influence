@@ -8,12 +8,16 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       email: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.TEXT,
       },
       password: {
+        allowNull: false,
         type: Sequelize.TEXT,
       },
       role: {
+        allowNull: false,
         type: Sequelize.TEXT,
       },
       createdAt: {
