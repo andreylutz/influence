@@ -1,6 +1,6 @@
 import React from 'react';
-import Signup from './Signup/Signup';
-import Signin from './Signin/Signin';
+import Signup from './signup/Signup';
+import Signin from './signin/Signin';
 
 export const Main = () => {
 
