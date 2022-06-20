@@ -2,8 +2,10 @@ import React from 'react'
 
 export default function UserFriends() {
   return (
-    <div>
-      User Freinds
+    <div className='user__friends-container'>
+      <div className="user__friends-box">
+        asdkjbkjbasd
+      </div>
     </div>
   )
 }

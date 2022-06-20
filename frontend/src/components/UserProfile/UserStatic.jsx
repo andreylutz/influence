@@ -23,7 +23,8 @@ export default function UserStatic() {
             <div className='lower__content'>
               <div className='lower__content-leftBox'>
                 <div>
-                  <h3>{state.name} {state.surname}</h3>
+                  {(true) ? <h3>{state.name} {state.surname}</h3> : <p></p>}
+
                   <span className='user__span'>{state.email}</span>
                 </div>
               </div>
@@ -35,11 +36,9 @@ export default function UserStatic() {
             <div className='nav__content'>
               <nav className='navigation'>
                 <ul className='navigation__list'>
-                  <li className='navigation__list-item'><Link to={'/info'} className="navigation__link">Info</Link></li>
-                  <li className='navigation__list-item'><Link to={'/events'} className="navigation__link">Events</Link></li>
-                  <li className='navigation__list-item'><Link to={'/myevents'} className="navigation__link">My Events</Link></li>
-                  <li className='navigation__list-item'><Link to={'/friends'} className="navigation__link">Friends</Link></li>
-                  <li className='navigation__list-item'><Link to={'/membership'} className="navigation__link">Membership</Link></li>
+                  <li className='navigation__list-item'><Link to={'/info'} className="navigation__link">Информация</Link></li>
+                  <li className='navigation__list-item'><Link to={'/friends'} className="navigation__link">Друзья</Link></li>
+                  <li className='navigation__list-item'><Link to={'/membership'} className="navigation__link">Кооперация</Link></li>
                 </ul>
               </nav>
             </div>
