@@ -1,4 +1,3 @@
-// React-Redux
 import { Provider } from 'react-redux';
 
 // React Components

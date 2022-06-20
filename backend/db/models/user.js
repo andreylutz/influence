@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       User.Skill = User.belongsToMany(Skill, {
         foreignKey: 'user_id',
-        through: 'UserSkill',
+        through: 'UserSkills',
       });
     }
   }

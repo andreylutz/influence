@@ -13,6 +13,8 @@ const regRouter = require('./routes/reg.routes');
 const logoutRoutes = require('./routes/logout.routes');
 const authRouter = require('./routes/auth.routes');
 
+const settingsRoute = require('./routes/settings.router');
+
 const { sequelize } = require('./db/models');
 
 const PORT = process.env.PORT ?? 4000;
@@ -20,6 +22,7 @@ const PORT = process.env.PORT ?? 4000;
 mainConfig(app);
 
 app.use('/', mainRoute);
+app.use('/api/settings', settingsRoute);
 
 app.use('/api/events', eventRouter);
 app.use('/api/reg', regRouter);

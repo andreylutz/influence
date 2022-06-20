@@ -22,9 +22,6 @@ module.exports = {
       location: {
         type: Sequelize.TEXT,
       },
-      skill: {
-        type: Sequelize.TEXT,
-      },
       user_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
