@@ -35,9 +35,33 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    email: DataTypes.TEXT,
-    password: DataTypes.TEXT,
-    role: DataTypes.TEXT,
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+    },
+    email: {
+      allowNull: false,
+      unique: true,
+      type: DataTypes.TEXT,
+    },
+    password: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    role: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
     modelName: 'User',

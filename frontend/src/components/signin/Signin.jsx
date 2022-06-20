@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
+// import { useNavigate } from "react-router-dom";
 import './signin.css';
 
 const Signin = () => {
-
+  // const navigate = useNavigate();
   const [show, setShow] = useState(false);// не используем show модельные окна
   const inputtwo = useRef();
   const inputthree = useRef();
@@ -20,9 +21,10 @@ const Signin = () => {
         password: inputthree.current.value,
       }),
     });
-    const text = await response.json();
+    const user = await response.json();
+    // navigate('/');
+    localStorage.setItem('user', JSON.stringify(user));
     window.location.assign('/')
-    console.log(text)
     setShow(false);
   };
 
@@ -35,8 +37,8 @@ const Signin = () => {
         <a href="/" title="Close" className="close">×</a>
       </div>
       <div className="signin-body">
-        <input ref={inputtwo} type='e-mail' className='pols' name='userEmail' placeholder='Введите e-mail'/>
-        <input ref={inputthree} type='password' className='pols' name='password' placeholder='Введите пароль'/>
+        <input ref={inputtwo} type='email' className='pols' name='userEmail' placeholder='Введите e-mail' required/>
+        <input ref={inputthree} type='password' className='pols' name='password' placeholder='Введите пароль' required/>
         <button onClick={handleClose} type='button' className='click' name='authBatton'>Войти</button>
       </div>
     </div>
