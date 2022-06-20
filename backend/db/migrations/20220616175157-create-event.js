@@ -22,6 +22,10 @@ module.exports = {
       date: {
         type: Sequelize.DATE,
       },
+      user_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -32,7 +36,7 @@ module.exports = {
       },
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     await queryInterface.dropTable('Events');
   },
 };

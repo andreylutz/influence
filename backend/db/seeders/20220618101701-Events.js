@@ -8,6 +8,7 @@ module.exports = {
         picture:
           'https://img-cdn.tinkoffjournal.ru/i/XtTQa5beTdy_JQE9DDydmpmf5JiEYchqA60E90YUH4Y/w:1400/aHR0cHM6Ly9pbWct/Y2RuLnRpbmtvZmZq/b3VybmFsLnJ1Ly0v/bWFpbl9fX3NfcGl0/X19zaHV0dGVyc3Rv/Y2tfNjg4OTM5NjE4/LjVjYXpmbGtwb3No/by5qcGc',
         date: new Date(),
+        user_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -18,6 +19,7 @@ module.exports = {
         picture:
           'https://img-cdn.tinkoffjournal.ru/i/XtTQa5beTdy_JQE9DDydmpmf5JiEYchqA60E90YUH4Y/w:1400/aHR0cHM6Ly9pbWct/Y2RuLnRpbmtvZmZq/b3VybmFsLnJ1Ly0v/bWFpbl9fX3NfcGl0/X19zaHV0dGVyc3Rv/Y2tfNjg4OTM5NjE4/LjVjYXpmbGtwb3No/by5qcGc',
         date: new Date(),
+        user_id: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -28,6 +30,7 @@ module.exports = {
         picture:
           'https://img-cdn.tinkoffjournal.ru/i/XtTQa5beTdy_JQE9DDydmpmf5JiEYchqA60E90YUH4Y/w:1400/aHR0cHM6Ly9pbWct/Y2RuLnRpbmtvZmZq/b3VybmFsLnJ1Ly0v/bWFpbl9fX3NfcGl0/X19zaHV0dGVyc3Rv/Y2tfNjg4OTM5NjE4/LjVjYXpmbGtwb3No/by5qcGc',
         date: new Date(),
+        user_id: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -38,6 +41,7 @@ module.exports = {
         picture:
           'https://img-cdn.tinkoffjournal.ru/i/XtTQa5beTdy_JQE9DDydmpmf5JiEYchqA60E90YUH4Y/w:1400/aHR0cHM6Ly9pbWct/Y2RuLnRpbmtvZmZq/b3VybmFsLnJ1Ly0v/bWFpbl9fX3NfcGl0/X19zaHV0dGVyc3Rv/Y2tfNjg4OTM5NjE4/LjVjYXpmbGtwb3No/by5qcGc',
         date: new Date(),
+        user_id: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -48,6 +52,7 @@ module.exports = {
         picture:
           'https://img-cdn.tinkoffjournal.ru/i/XtTQa5beTdy_JQE9DDydmpmf5JiEYchqA60E90YUH4Y/w:1400/aHR0cHM6Ly9pbWct/Y2RuLnRpbmtvZmZq/b3VybmFsLnJ1Ly0v/bWFpbl9fX3NfcGl0/X19zaHV0dGVyc3Rv/Y2tfNjg4OTM5NjE4/LjVjYXpmbGtwb3No/by5qcGc',
         date: new Date(),
+        user_id: 5,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -58,6 +63,7 @@ module.exports = {
         picture:
           'https://img-cdn.tinkoffjournal.ru/i/XtTQa5beTdy_JQE9DDydmpmf5JiEYchqA60E90YUH4Y/w:1400/aHR0cHM6Ly9pbWct/Y2RuLnRpbmtvZmZq/b3VybmFsLnJ1Ly0v/bWFpbl9fX3NfcGl0/X19zaHV0dGVyc3Rv/Y2tfNjg4OTM5NjE4/LjVjYXpmbGtwb3No/by5qcGc',
         date: new Date(),
+        user_id: 6,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
