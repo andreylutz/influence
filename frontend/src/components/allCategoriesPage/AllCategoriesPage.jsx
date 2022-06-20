@@ -23,28 +23,28 @@ function AllUsersPage() {
   // },
   // ];
   const dispatch = useDispatch();
-  const allUsers = useSelector((state) => state.settings.list);
-  console.log('====>', allUsers);
+  const allCategories = useSelector((state) => state.settings.list);
   const roleUser = 'user';
+  console.log('dd=======>', allCategories);
 
   useEffect(() => {
-    async function getAllUsers() {
-      const reqServer = await fetch('http://localhost:4000/api/settings/users');
+    async function getAllCategories() {
+      const reqServer = await fetch('http://localhost:4000/api/settings/allCategories');
       const resAllAbout = await reqServer.json();
 
       const action = {
-        type: 'INIT_USER_SETTINGS',
+        type: 'INIT_CATEGORIES',
         payload: resAllAbout,
       }
       dispatch(action);
     }
-    getAllUsers();
+    getAllCategories();
   }, [dispatch]);
 
   return (
     <div className="allUsersBlock" >
       {
-        allUsers.map((oneUser) => (
+        allCategories.map((oneUser) => (
           (oneUser.role === 'user') ?
             <OneUserCard key={oneUser.id} oneUser={oneUser} />
             :

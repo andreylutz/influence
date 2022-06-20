@@ -17,7 +17,7 @@ import UserMyEvents from './components/UserProfile/UserMyEvents';
 import UserFriends from './components/UserProfile/UserFriends'
 import UserMembership from './components/UserProfile/UserMembership';
 import UserStatus from './components/UserProfile/UserStatus';
-import AllUsersPage from './components/allUserPage/AllUsersPage';
+import AllCategoriesPage from './components/allCategoriesPage/AllCategoriesPage';
 import UserEditPage from './components/UserEditPage/UserEditPage';
 
 import store from './store';
@@ -40,7 +40,7 @@ function App() {
           <Route path="membership" element={<UserMembership />} />
         </Route>
 
-        <Route path="/allUsers" element={<AllUsersPage/>}/>
+        <Route path="/allUsers" element={<AllCategoriesPage/>}/>
         <Route path="/userEdit" element={<UserEditPage/>}/>
 
       </Routes>

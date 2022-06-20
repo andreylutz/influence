@@ -4,7 +4,7 @@ const initialState = {
 
 const userSettingsReducer = (prevState = initialState, action) => {
   switch (action.type) {
-    case 'INIT_USER_SETTINGS':
+    case 'INIT_CATEGORIES':
       console.log(action.payload);
       return {
         ...prevState,

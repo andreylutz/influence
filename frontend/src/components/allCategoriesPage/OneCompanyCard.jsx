@@ -9,7 +9,7 @@ function OneCompanyCard ({oneCompany}) {
       <ul className='ulOneUser'>
         <li className='liListOneUser'>Имя: <span>{oneCompany['Company_about.companyName']}</span> </li>
         <li>Локация: <span>{oneCompany['Company_about.location']}</span> </li>
-        <li>Интересы: <span>{oneCompany['Company_about.skill']}</span> </li>
+        <li>Интересы: <span>{oneCompany['Skills.name']}</span> </li>
       </ul>
     </div>
   )

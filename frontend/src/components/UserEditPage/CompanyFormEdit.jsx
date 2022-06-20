@@ -1,91 +1,55 @@
-// import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-
 function CompanyFormEdit () {
-  const dispatch = useDispatch()
-  // const userEdit = useSelector((state) => state.settings.list)
   
   // id нужно брать из сессии
-  const userId = 1;
+  const companyId = 2;
 
-  async function editUserForm (event) {
+  async function editCompanyForm (event) {
     event.preventDefault()
-    const userData = {
-      avatar: event.target.avatar.value,
-      userName: event.target.userName.value,
-      surname: event.target.surname.value,
-      age: event.target.age.value,
+    const companyData = {
+      logo: event.target.logo.value,
+      companyName: event.target.companyName.value,
       location: event.target.location.value,
       skill: event.target.skill.value,
-      userId,
+      company_id: companyId,
     }
 
-    const body = JSON.stringify({ userData });
+    const body = JSON.stringify({ companyData });
 
-    const toServer = await fetch('http://localhost:4000/api/settings/users', {
+    const toServer = await fetch('http://localhost:4000/api/settings/companies', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body,
     });
 
-    const allUsersArr = await toServer.json();
-
-    // const action = {
-    //   type: 'INIT_USER_SETTINGS',
-    //   payload: allUsersArr,
-    // };
-    // dispatch(action);
-
-
-    // const action = {
-    //   type: 'EDIT_USER_SETTINGS',
-    //   payload: userData,
-    // }
-    // dispatch(action)
-
+    // const allCompanyArr = await toServer.json();
   }
-  // useEffect(() => {
-  //   fetch('')
-  // }, [dispatch])
 
   return(
     <div>
-        <form onSubmit={editUserForm}>
+        <form onSubmit={editCompanyForm}>
           <ul className="ulUserEdit">
 
             <li>
               <label>
-                <input type="text" name="avatar" placeholder="Ваш аватар..." />
+                <input type="text" name="logo" placeholder="Ваш логотип..." />
               </label>
             </li>
 
             <li>
               <label>
-                <input type="text" name="userName" placeholder="Ваше имя..." />
+                <input type="text" name="companyName" placeholder="Название компании..." />
               </label>
             </li>
 
             <li>
               <label>
-                <input type="text" name="surname" placeholder="Ваша фамилия..." />
+                <input type="text" name="location" placeholder="Локация вашей компании..." />
               </label>
             </li>
 
             <li>
               <label>
-                <input type="text" name="age" placeholder="Ваш возраст..." />
-              </label>
-            </li>
-
-            <li>
-              <label>
-                <input type="text" name="location" placeholder="Ваша локация..." />
-              </label>
-            </li>
-
-            <li>
-              <label>
-                <input type="text" name="skill" placeholder="Ваши интересы..." />
+                <input type="text" name="skill" placeholder="Интересы вашей компании..." />
               </label>
             </li>
           </ul>
@@ -96,4 +60,4 @@ function CompanyFormEdit () {
   )
 }
 
-export default CompanyFormEdit
+export default CompanyFormEdit;

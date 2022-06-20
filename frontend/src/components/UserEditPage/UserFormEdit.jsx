@@ -1,9 +1,4 @@
-// import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-
 function UserFormEdit () {
-  const dispatch = useDispatch()
-  // const userEdit = useSelector((state) => state.settings.list)
   
   // id нужно брать из сессии
   const userId = 1;
@@ -28,7 +23,7 @@ function UserFormEdit () {
       body,
     });
 
-    const allUsersArr = await toServer.json();
+    // const allUsersArr = await toServer.json();
 
     // const action = {
     //   type: 'INIT_USER_SETTINGS',
