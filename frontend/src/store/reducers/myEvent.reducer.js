@@ -1,0 +1,18 @@
+import { REMOVE_EVENT, SET_EVENTS } from '../../actions/actionsMyEvents';
+
+const initialState = {
+  list: [],
+};
+
+const myEventReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SET_EVENTS:
+      return { ...state, list: [...state.list, ...action.payload] };
+    case REMOVE_EVENT:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export default myEventReducer;
