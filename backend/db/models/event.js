@@ -16,16 +16,44 @@ module.exports = (sequelize, DataTypes) => {
   }
   Event.init(
     {
-      name: DataTypes.TEXT,
-      description: DataTypes.TEXT,
-      location: DataTypes.TEXT,
-      picture: DataTypes.TEXT,
-      date: DataTypes.DATE,
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER,
+      },
+      name: {
+        type: DataTypes.TEXT,
+      },
+      description: {
+        type: DataTypes.TEXT,
+      },
+      location: {
+        type: DataTypes.TEXT,
+      },
+      picture: {
+        type: DataTypes.TEXT,
+      },
+      date: {
+        type: DataTypes.DATE,
+      },
+      user_id: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+      },
+      createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+      },
     },
     {
       sequelize,
       modelName: 'Event',
-    }
+    },
   );
   return Event;
 };
