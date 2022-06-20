@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
+// import { useNavigate } from "react-router-dom";
 import './signup.css';
 
 const Signup = () => {
-
+  // const navigate = useNavigate();
   const [show, setShow] = useState(false);// не используем show модельные окна
   const inputtwo = useRef();
   const inputthree = useRef();
@@ -21,9 +22,10 @@ const Signup = () => {
           role: inputfor.current.value,
         }),
       });
-      const text = await response.json();
+      const user = await response.json();
+      // navigate('/');
+      localStorage.setItem('user', JSON.stringify(user));
       window.location.assign('/');
-      console.log(text);
       setShow(false);
     }
 
@@ -36,9 +38,9 @@ const Signup = () => {
         <a href="/" title="Close" className="close">×</a>
       </div>
       <div className="signup-body">    
-        <input ref={inputtwo} type='text' className='pols' name='userEmail' placeholder='Введите e-mail'/>
-        <input ref={inputthree} type='password' className='pols' name='userPassword' placeholder='Придумайте пароль'/>
-        {/* <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/> */}
+        <input ref={inputtwo} type='email' className='pols' name='userEmail' placeholder='Введите e-mail'required/>
+        <input ref={inputthree} type='password' className='pols' name='userPassword' placeholder='Придумайте пароль'required/>
+        <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'required/>
         <select ref={inputfor} className='selectorius' name="role">
           <option value="user">Ваш статус в проекте USER</option>
           <option value="company">Ваш статус в проекте COMPANY</option>

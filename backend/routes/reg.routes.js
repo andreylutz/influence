@@ -13,7 +13,7 @@ regRouter.route('/')
         email: userEmail, password: await bcrypt.hash(userPassword, 7), role,
       });
       req.session.user = newUser;
-      res.send(newUser);
+      res.json({ user: newUser.email, role: newUser.role });
     }
   });
 

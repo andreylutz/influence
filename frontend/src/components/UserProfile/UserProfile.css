@@ -23,8 +23,8 @@ a {
 }
 
 .upper__content {
-  position: relative;
   height: 220px;
+  /* padding: 5px; */
   margin-bottom: 15px;
   background-color: rgb(225, 225, 225);
   border-radius: 19px;
@@ -47,9 +47,8 @@ a {
 
 .lower__content-leftBox {
   display: flex;
-  padding-left: 130px;
+  padding-left: 123px;
   margin-bottom: 40px;
-  margin-right: 20px;
 }
 
 .user__span {
@@ -58,8 +57,8 @@ a {
 
 .left-box__photo {
   position: absolute;
-  top: 186px;
-  left: 20px;
+  top: 216px;
+  left: 60px;
   margin-right: 20px;
   background-image: url('https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg');
   background-size: cover;
@@ -129,37 +128,20 @@ button:hover {
 /* User__status */
 
 .user__status-container {
-  display: flex;
-  /* justify-content: space-between; */
-  padding: 10px 16px;
   min-height: 50vh;
-
+  padding-left: 16px;
   background-color: rgb(236, 236, 236);
 }
 
 .user__status-box {
-  min-height: 250px;
   max-width: 300px;
-  margin-right: 16px;
+  min-height: 250px;
   padding: 20px 20px 20px 30px;
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
 }
 
 .user__status-about {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.user__status-wall {
-  width: 100%;
-  height: 300px;
-  padding: 20px 20px 20px 30px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 15px;
-}
-
-.user__status-title {
   margin-top: 10px;
   margin-bottom: 20px;
 }
