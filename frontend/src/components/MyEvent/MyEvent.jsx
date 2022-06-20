@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './MyEvent.css';
 
-export const MyEvent = ({ event }) => {
+const MyEvent = ({ event }) => {
   const delEvent = () => {};
 
   return (
@@ -19,3 +19,5 @@ export const MyEvent = ({ event }) => {
     </li>
   );
 };
+
+export default MyEvent;

@@ -1,4 +1,4 @@
-import { REMOVE_EVENT, SET_EVENTS } from '../../actions/actionsMyEvents';
+import { REMOVE_EVENT, SET_EVENTS } from "../../actions/actionsMyEvents";
 
 const initialState = {
   list: [],
@@ -7,7 +7,7 @@ const initialState = {
 const myEventReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_EVENTS:
-      return { ...state, list: [...state.list, ...action.payload] };
+      return { ...state, list: [...action.payload] };
     case REMOVE_EVENT:
       return action.payload;
     default:

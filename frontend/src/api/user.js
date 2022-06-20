@@ -1,11 +1,10 @@
 import { instance } from './index';
 import { actionsUser } from '../actions/actionsUser';
 
-export const registration = (username, email, password) => {
+export const registration = (email, password) => {
   return async (dispatch) => {
     try {
-      await instance.post(`/api/reg/`, {
-        username,
+      await instance.post(`/reg/`, {
         email,
         password,
       });
@@ -20,7 +19,7 @@ export const registration = (username, email, password) => {
 export const login = (email, password) => {
   return async (dispatch) => {
     try {
-      const response = await instance.post(`users/login/`, {
+      const response = await instance.post(`/auth`, {
         email,
         password,
       });
@@ -38,6 +37,8 @@ export const login = (email, password) => {
 export const auth = () => {
   return async (dispatch) => {
     try {
+      await instance.post(`/logout`);
+
       dispatch(actionsUser.logout());
       dispatch(actionsUser.setUser(''));
     } catch (e) {
