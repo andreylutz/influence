@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getMyEvents } from '../../api/myEvents';
+import { getEvents } from '../../api/Events';
 import MyEvent from '../MyEvent/MyEvent';
 import './Events.css';
 
@@ -11,7 +11,7 @@ export const MyEvents = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMyEvents());
+    dispatch(getEvents());
   }, []);
 
   return (
