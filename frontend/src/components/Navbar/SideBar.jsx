@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Aside from './Aside'
 
 
-function sideBar() {
+function SideBar() {
   return (
 
     <div style={{ display: 'flex' }}>
@@ -35,4 +35,4 @@ function sideBar() {
   )
 }
 
-export default sideBar
+export default SideBar
