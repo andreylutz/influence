@@ -8,7 +8,7 @@ const Main = () => {
 
   return (
     <div className={styles.main}>
-      <h1 className={styles.influnce}>INFLUENCE</h1>
+      <span className={styles.influnce}>INFLUENCE</span>
       <Signup />
       <Signin />
 

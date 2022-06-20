@@ -31,7 +31,7 @@ padding-left: 50px;
   margin: 100px 0;
 }
 
-/* @media (min-width: 200px) {
+@media (min-width: 200px) {
   body {
   }
 }
@@ -44,7 +44,7 @@ padding-left: 50px;
 @media (min-width: 1000px) {
   body {
   }
-} */
+}
 
 .titles {
   font-size: clamp(3.5rem, 8vw, 5.25rem);

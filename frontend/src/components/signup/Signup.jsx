@@ -49,7 +49,7 @@ const Signup = () => {
           <div className="signup-body">
             <input
               ref={inputtwo}
-              type="text"
+              type="email"
               className="pols"
               name="userEmail"
               placeholder="Введите e-mail"
