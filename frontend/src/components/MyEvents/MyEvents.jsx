@@ -2,70 +2,96 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getMyEvents } from '../../api/Events';
+import { addEvent, getMyEvents } from '../../api/Events';
 import MyEvent from '../MyEvent/MyEvent';
 import './MyEvents.css';
 
 export const MyEvents = () => {
   const myEvents = useSelector((state) => state.myEvent.list);
+  const userRole = useSelector((state) => state.user.role);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMyEvents());
-  }, []);
+  }, [dispatch]);
 
-  const addEvent = (event) => {
-    event.preventDefault();
+  const addNewEvent = (e) => {
+    e.preventDefault();
+
+    const eventName = e.target.eventName.value;
+    const eventDescription = e.target.eventDescription.value;
+    const location = e.target.location.value;
+    const eventDate = e.target.eventDate.value;
+
+    dispatch(addEvent(eventName, eventDescription, location, eventDate));
+
+    dispatch(getMyEvents());
   };
 
   return (
     <div>
-      <h3>Добавить новое Событие</h3>
-
-      <form onSubmit={addEvent}>
-        <div className="form-group mb-3">
-          <label htmlFor="event_name" className="form-label">
-            Название События:
-            <input
-              id="event_name"
-              className="form-control"
-              name="event_name"
-              type="text"
-              required
-              title="Введите название События"
-            />
-          </label>
-        </div>
-        <div className="form-group mb-3">
-          <label htmlFor="location" className="form-label">
-            Адрес События:
-            <input
-              id="location"
-              className="form-control"
-              name="location"
-              type="text"
-              required
-              title="Введите адрес События"
-            />
-          </label>
-        </div>
-        <div className="form-group mb-3">
-          <label htmlFor="event_date" className="form-label">
-            Дата События:
-            <input
-              id="event_date"
-              className="form-control"
-              name="event_date"
-              type="datetime-local"
-              required
-              title="Введите дату События"
-            />
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Добавить
-        </button>
-      </form>
+      {userRole === 'company' && (
+        <>
+          <h3 className="eventTitle">Добавить новое Мероприятие</h3>
+          <form className="addEventForm" onSubmit={addNewEvent}>
+            <div className="form-group mb-3">
+              <label htmlFor="eventName" className="form-label">
+                Название Мероприятия:
+                <input
+                  id="eventName"
+                  className="form-control"
+                  name="eventName"
+                  type="text"
+                  required
+                  title="Введите название Мероприятия"
+                />
+              </label>
+            </div>
+            <div className="form-group mb-3">
+              <label htmlFor="eventDescription" className="form-label">
+                Описание Мероприятия:
+                <textarea
+                  id="eventDescription"
+                  className="form-control"
+                  name="eventDescription"
+                  required
+                  title="Введите описание Мероприятия"
+                />
+              </label>
+            </div>
+            <div className="form-group mb-3">
+              <label htmlFor="location" className="form-label">
+                Адрес Мероприятия:
+                <input
+                  id="location"
+                  className="form-control"
+                  name="location"
+                  type="text"
+                  required
+                  title="Введите адрес Мероприятия"
+                />
+              </label>
+            </div>
+            <div className="form-group mb-3">
+              <label htmlFor="eventDate" className="form-label">
+                Дата Мероприятия:
+                <input
+                  id="eventDate"
+                  className="form-control"
+                  name="eventDate"
+                  type="datetime-local"
+                  required
+                  title="Введите дату Мероприятия"
+                />
+              </label>
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Добавить Мероприятие
+            </button>
+          </form>
+        </>
+      )}
 
       <ul className="my-events-list">
         {myEvents.map((el) => (
@@ -77,4 +103,3 @@ export const MyEvents = () => {
 };
 
 export default MyEvents;
-
