@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './MyEvent.css';
 
 const MyEvent = ({ event }) => {
-  const delEvent = () => {};
+  const Subscribe = () => {};
 
   return (
     <li className="my-event">
@@ -15,7 +15,7 @@ const MyEvent = ({ event }) => {
       </p>
       <p>Дата: {event.date.toLocaleString()}</p>
       <Link to={`/myevent/${event.id}`}>Информация</Link>
-      <button onClick={delEvent}>Отказаться</button>
+      <button onClick={Subscribe}>Подписаться</button>
     </li>
   );
 };
