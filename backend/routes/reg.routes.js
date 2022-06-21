@@ -6,7 +6,7 @@ regRouter.route('/')
   .post(async (req, res) => {
     const mail = req.body.userEmail;
     const roles = req.body.role;
-    if (req.body.userPassword.length >= 8) {
+    if (req.body.userPasswordRepl === req.body.userPassword) {
       const pass = await bcrypt.hash(req.body.userPassword, 5);
       try {
         const user = await User.create({
@@ -18,11 +18,11 @@ regRouter.route('/')
         res
           .status(501)
           .json({ message: 'Пользователь с таким именем уже зарегестрирован.' });
-        // .send('<script>alert(\'Пользователь с таким именем уже зарегестрирован.\')</script>');
       }
     } else {
       res
-        .status(404);
+        .status(404)
+        .json({ messageUnik: 'Пароли не совпадают.' });
     }
   });
 

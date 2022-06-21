@@ -34,14 +34,13 @@ const Signup = () => {
       body: JSON.stringify(data),
     });
     const user = await response.json();
-    
     if(user.hasOwnProperty('id')) {
       dispatch(actionsUser.setUser(user));
       dispatch(actionsUser.initUser());
       nav('/');
       setShow(false);
     } else {
-      setText((text) => 'Пользователь с таким именем уже зарегестрирован.')
+      setText((text) => user.hasOwnProperty('message') ? 'Пользователь с таким именем уже зарегестрирован.' : 'Пароли не совпадают.')
     }
   }
 
@@ -85,7 +84,30 @@ const Signup = () => {
               placeholder="Придумайте пароль"
             />
             <div className='errorMain' style={{height: 40,}}>{errors?.userPassword && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPassword?.message || "Error!"}</p>}</div>
-            {/* <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/> */}
+            <input
+            {...register('userPasswordRepl',{
+              required: 'Поле обязательно к заполнению.',
+              minLength: {
+                value: 8,
+                message: 'Минимум 8 символов'
+              }
+            } )}
+              type="password"
+              className="pols"
+              minLength="8"
+              placeholder="Подтвердите пароль"
+            />
+            <div className='errorMain' style={{height: 40,}}>{errors?.userPasswordRepl && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPasswordRepl?.message || "Error!"}</p>}</div>
+            {/* <input
+            {...register('userKey',{
+              required: 'Поле обязательно к заполнению.'
+            } )}
+              type="text"
+              className="pols"
+              minLength="8"
+              placeholder="Введите уникальный ключ регистрации"
+            />
+            <div className='errorMain' style={{height: 40,}}>{errors?.userKey && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userKey?.message || "Error!"}</p>}</div> */}
             <select 
             {...register('role',{
               required: 'Поле обязательно к заполнению.',
