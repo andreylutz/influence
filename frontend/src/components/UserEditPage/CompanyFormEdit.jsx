@@ -1,9 +1,39 @@
-function CompanyFormEdit () {
-  
-  // id нужно брать из сессии
-  const companyId = 2;
+import { useEffect } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import './userEdit.css'
 
-  async function editCompanyForm (event) {
+function CompanyFormEdit() {
+
+  const companyId = useSelector((state) => state.user.id)
+  console.log(companyId);
+
+  const initialCompAbout = {
+    fCompanyAbout: {
+      logo: '',
+      companyName: '',
+      location: '',
+    },
+    fCompSkill: {
+      name: '',
+    }
+  }
+  const [stateCompAb, setState] = useState(initialCompAbout)
+
+
+
+  useEffect(() => {
+    async function getCompanyAbout() {
+      const resp = await fetch(`http://localhost:4000/api/settings/companies/${companyId}`)
+      const serResp = await resp.json()
+      console.log('fetchuuuuuuse', serResp);
+      setState(serResp)
+    }
+    getCompanyAbout()
+  }, [])
+
+
+  async function editCompanyForm(event) {
     event.preventDefault()
     const companyData = {
       logo: event.target.logo.value,
@@ -21,42 +51,74 @@ function CompanyFormEdit () {
       body,
     });
 
-    // const allCompanyArr = await toServer.json();
+    const currentComp = await toServer.json();
+    console.log('!!!!!!!!!!!!!!!!!!!!!', currentComp);
+    setState(currentComp)
   }
 
-  return(
-    <div>
-        <form onSubmit={editCompanyForm}>
-          <ul className="ulUserEdit">
+  let {logo} = {...stateCompAb.fCompanyAbout.logo}
 
-            <li>
-              <label>
-                <input type="text" name="logo" placeholder="Ваш логотип..." />
-              </label>
-            </li>
+  const initial = {...stateCompAb,
+    fCompanyAbout: logo
+  }
+ 
+  const [logInpState, setLogChange] = useState(...stateCompAb.fCompanyAbout.logo)
 
-            <li>
-              <label>
-                <input type="text" name="companyName" placeholder="Название компании..." />
-              </label>
-            </li>
+  function inpVal(event) {
+    console.log('fffff',event.target.logo);
+    setLogChange(event.target.value)
+  }
 
-            <li>
-              <label>
-                <input type="text" name="location" placeholder="Локация вашей компании..." />
-              </label>
-            </li>
 
-            <li>
-              <label>
-                <input type="text" name="skill" placeholder="Интересы вашей компании..." />
-              </label>
-            </li>
-          </ul>
-          <button type="submit">Отправить</button>
 
-        </form>
-      </div>
+  console.log('staaaate', stateCompAb);
+
+
+
+  return (
+    <div className="twoColumns">
+      <div className="firstCol">
+      <form onSubmit={editCompanyForm}>
+        <ul className="ulUserEdit">
+
+          <li>
+            <label> Ваш текущий логотип: <br />
+              <span>{stateCompAb.fCompanyAbout.logo}</span>
+              <input onChange={inpVal} type="text" name="logo" required />
+            </label>
+          </li>
+
+          <li>
+            <label> Название компании: <br />
+              <span>{stateCompAb.fCompanyAbout.companyName}</span>
+              <input type="text" name="companyName" required />
+            </label>
+          </li>
+
+          <li>
+            <label> Локация вашей компании: <br />
+              <span>{stateCompAb.fCompanyAbout.location}</span>
+              <input type="text" name="location" required />
+            </label>
+          </li>
+
+          <li>
+            <label> Интересы вашей компании: <br />
+              <span>{stateCompAb.fCompSkill.name}</span>
+              <input type="text" name="skill" required />
+            </label>
+          </li>
+        </ul>
+        <button type="submit">Отправить</button>
+
+      </form>
+    </div>
+    <br/>
+    <div className="secondCol">
+      <p>efss</p>
+    </div>
+    </div>
+    
   )
 }
 

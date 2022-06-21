@@ -1,7 +1,8 @@
+import { useSelector } from "react-redux";
+
 function UserFormEdit () {
-  
-  // id нужно брать из сессии
-  const userId = 1;
+  const userId = useSelector((state) => state.user.id)
+  console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbb', userId);
 
   async function editUserForm (event) {
     event.preventDefault()
@@ -23,7 +24,8 @@ function UserFormEdit () {
       body,
     });
 
-    // const allUsersArr = await toServer.json();
+    const currentComp = await toServer.json();
+    console.log('currrrrrrrrrrrrr',currentComp);
 
     // const action = {
     //   type: 'INIT_USER_SETTINGS',

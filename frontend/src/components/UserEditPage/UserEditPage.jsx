@@ -1,12 +1,13 @@
 import UserFormEdit from "./UserFormEdit";
 import CompanyFormEdit from "./CompanyFormEdit";
+import { useSelector } from "react-redux";
 function UserEditPage() {
-  const roleUser = 'company';
+  const userRole = useSelector((state) => state.user.role)
   return (
     <div>
       <h1>Страница для внесения данных</h1>
       {
-        (roleUser === 'user') ?
+        (userRole === 'user') ?
         <UserFormEdit/>
         :
         <CompanyFormEdit/>
