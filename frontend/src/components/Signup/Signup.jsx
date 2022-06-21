@@ -34,7 +34,6 @@ const Signup = () => {
       body: JSON.stringify(data),
     });
     const user = await response.json();
-    console.log(user)
     
     if(user.hasOwnProperty('id')) {
       dispatch(actionsUser.setUser(user));

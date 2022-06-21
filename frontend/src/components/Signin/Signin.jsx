@@ -22,6 +22,7 @@ handleSubmit,
   const nav = useNavigate();
 
   const [show, setShow] = useState(false); 
+  const [text, setText] = useState(''); 
 
   const handleClose = async (data) => {
     const response = await fetch('http://localhost:4000/api/auth', {
@@ -31,12 +32,16 @@ handleSubmit,
       body: JSON.stringify(data),
     });
     const user = await response.json();
-
-    dispatch(actionsUser.setUser(user));
-    dispatch(actionsUser.initUser());
-
-    nav('/');
-    setShow(false);
+    console.log(user)
+    
+    if(user.hasOwnProperty('id')) {
+      dispatch(actionsUser.setUser(user));
+      dispatch(actionsUser.initUser());
+      nav('/');
+      setShow(false);
+    } else {
+      setText((text) => 'Имя пользователя или пароль не верный.')
+    }
   };
 
 
@@ -50,6 +55,7 @@ handleSubmit,
               ×
             </a>
           </div>
+          <p style={{color: 'red',fontSize: '15px'}}>{text}</p>
           <form onSubmit={handleSubmit(handleClose)} className="signin-body">
             <input
             { ...register('userEmail',{
