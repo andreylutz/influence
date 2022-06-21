@@ -12,7 +12,7 @@ function NavBar() {
       credentials: 'include',
 
     })
-    // localStorage.clear()
+    localStorage.clear()
     dispatch(actionsUser.logout());
 
   }

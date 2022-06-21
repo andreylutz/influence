@@ -8,18 +8,6 @@ import './userEdit.css'
 
 
 function CompanyFormEdit() {
-
-  let lsSerResp = {
-    fCompanyAbout: {
-      logo: '',
-      companyName: '',
-      location: '',
-    },
-    fCompSkill: {
-      name: '',
-    }
-  }
-
   const companyId = useSelector((state) => state.user.id)
 
   const initialCompAbout = {
@@ -34,15 +22,12 @@ function CompanyFormEdit() {
   }
   const [stateCompAb, setState] = useState(initialCompAbout)
 
-
   useEffect(() => {
     if (companyId) {
       async function getCompanyAbout() {
         const resp = await fetch(`http://localhost:4000/api/settings/companies/${companyId}`)
         const serResp = await resp.json()
         if (!serResp.errMessage) {
-          console.log('fetchuuuuuuse', serResp);
-          // localStorage.setItem("serResp", JSON.stringify(serResp))
           setState(serResp)
         } else {
           const errCompAbout = {
@@ -67,7 +52,6 @@ function CompanyFormEdit() {
 
   let lSserResp;
 
-
   async function editCompanyForm(event) {
     event.preventDefault()
     const companyData = {
@@ -88,11 +72,10 @@ function CompanyFormEdit() {
         name: event.target.skill.value,
       }
     }
+
     localStorage.setItem("lSserResp", JSON.stringify(lSserResp))
 
-
     const body = JSON.stringify({ companyData });
-
     const toServer = await fetch('http://localhost:4000/api/settings/companies', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -103,23 +86,34 @@ function CompanyFormEdit() {
     setState(currentComp)
   }
 
-
   lSserResp = JSON.parse(localStorage.getItem("lSserResp"))
 
   if (lSserResp === null) {
-    lSserResp = {
-      fCompanyAbout: {
-        logo: '---',
-        companyName: '---',
-        location: '---',
-      },
-      fCompSkill: {
-        name: '---',
+    if(stateCompAb === initialCompAbout) {
+      lSserResp = {
+        fCompanyAbout: {
+          logo: '',
+          companyName: '',
+          location: '',
+        },
+        fCompSkill: {
+          name: '',
+        }
+      }
+    } else {
+      lSserResp = {
+        fCompanyAbout: {
+          logo: stateCompAb.fCompanyAbout.logo,
+          companyName: stateCompAb.fCompanyAbout.companyName,
+          location: stateCompAb.fCompanyAbout.location,
+        },
+        fCompSkill: {
+          name: stateCompAb.fCompSkill.name,
+        }
       }
     }
-  }
 
-  console.log(lSserResp);
+  }
 
   const [logInpState, setLogChange] = useState(lSserResp.fCompanyAbout.logo)
   const [nameInpState, setNameChange] = useState(lSserResp.fCompanyAbout.companyName)
@@ -141,11 +135,10 @@ function CompanyFormEdit() {
     }
   }
 
-
-
-
   return (
-    <><h1 className="hOneTag">Страница профиля компании</h1><div className="twoColumns">
+
+    <>
+        <h1 className="hOneTag">Страница профиля компании</h1><div className="twoColumns">
       <div className="firstCol">
         <form onSubmit={editCompanyForm}>
           <ul className="ulUserEdit">
@@ -182,6 +175,7 @@ function CompanyFormEdit() {
       <div className="secondCol">
         <div className="oneUserBlock">
           <div className='userAvatarBlock'>
+
             <img className="userAvatar" src={`${stateCompAb.fCompanyAbout.logo}`} />
           </div>
           <ul className='ulOneUser'>

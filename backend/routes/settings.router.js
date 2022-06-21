@@ -5,7 +5,6 @@ const {
 } = require('../db/models');
 
 // /api/settings
-
 settings.route('/allCategories')
   .get(async (req, res) => {
     const allUsers = await User.findAll(
@@ -18,6 +17,17 @@ settings.route('/allCategories')
   });
 
 settings.route('/users')
+  .get(async (req, res) => {
+    const { companyId: userId } = req.body;
+    if (userId) {
+      const findUserSkill = await UserSkill.findOne({ where: { user_id: userId } });
+      const fUserAbout = await Company_about.findOne({ where: { user_id: userId } });
+      const fUserSkill = await Skill.findOne(
+        { where: { id: findUserSkill.skill_id } },
+      );
+      res.json({ fUserAbout, fUserSkill });
+    }
+  })
   .post(async (req, res) => {
     const { userData } = req.body;
     const {
@@ -27,7 +37,7 @@ settings.route('/users')
       const findUserAbout = await User_about.findOne({ where: { user_id: userId } });
 
       if (!findUserAbout) {
-        const newUserAbout = await User_about.create({
+        const fUserAbout = await User_about.create({
           avatar,
           name: userName,
           surname,
@@ -36,13 +46,45 @@ settings.route('/users')
           user_id: userId,
         });
 
-        const newSkill = await Skill.create({ name: skill });
-        const newUserSkill = await UserSkill.create({ skill_id: newSkill.id, user_id: userId });
-        const allUserData = await User_about.findAll({ raw: true });
-        res.json(allUserData);
+        const fUserSkill = await Skill.create({ name: skill });
+        const fUserUserSkill = await UserSkill.create({ skill_id: fUserSkill.id, user_id: userId });
+
+        res.json({ fUserAbout, fUserSkill });
       } else {
-        const allUserData = await User_about.findAll({ raw: true });
-        res.json({ allUserData });
+        const updUserAbout = await User_about.update({
+          avatar,
+          name: userName,
+          surname,
+          age,
+          location,
+        }, { where: { user_id: userId } });
+        const fUserUserSkill = await UserSkill.findOne({ where: { user_id: userId } });
+        const updUserSkill = await Skill.update(
+          { name: skill },
+          { where: { id: fUserUserSkill.skill_id } },
+        );
+        const fUserAbout = await User_about.findOne({ where: { user_id: userId } });
+        const fUserSkill = await Skill.findOne(
+          { where: { id: fUserUserSkill.skill_id } },
+        );
+        res.json({ fUserAbout, fUserSkill });
+      }
+    }
+  });
+
+settings.route('/users/:userId')
+  .get(async (req, res) => {
+    const { userId } = req.params;
+    if (userId) {
+      const fUserUserSkill = await UserSkill.findOne({ where: { user_id: userId } });
+      const fUserAbout = await User_about.findOne({ where: { user_id: userId } });
+      if (fUserUserSkill) {
+        const fUserSkill = await Skill.findOne(
+          { where: { id: fUserUserSkill.skill_id } },
+        );
+        res.json({ fUserAbout, fUserSkill });
+      } else {
+        res.json({ errMessage: 'error with skillId' });
       }
     }
   });
@@ -68,18 +110,18 @@ settings.route('/companies')
       const findCompanyAbout = await Company_about.findOne({ where: { user_id: company_id } });
 
       if (!findCompanyAbout) {
-        const newCompAbout = await Company_about.create({
+        const fCompanyAbout = await Company_about.create({
           logo,
           companyName,
           location,
           user_id: company_id,
         });
 
-        const newCompSkill = await Skill.create({ name: skill });
+        const fCompSkill = await Skill.create({ name: skill });
         const newCompUserSkill = await UserSkill.create({
-          skill_id: newCompSkill.id, user_id: company_id,
+          skill_id: fCompSkill.id, user_id: company_id,
         });
-        res.json({ newCompAbout, newCompSkill });
+        res.json({ fCompanyAbout, fCompSkill });
       } else {
         const updCompAbout = await Company_about.update({
           logo,
