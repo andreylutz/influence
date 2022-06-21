@@ -139,7 +139,7 @@ button:hover {
 
 .user__status-box {
   height: fit-content;
-  max-width: 300px;
+  min-width: 300px;
   margin-right: 16px;
   padding: 20px 20px 20px 30px;
   background-color: rgb(255, 255, 255);

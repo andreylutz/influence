@@ -1,31 +1,46 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 export default function UserStatic() {
-  const [state] = useState({
-    avatar: 'https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg', name: 'John', surname: 'Freeman', age: 24, location: 'Toronto', skill: 'Informational technology', email: 'netweb@gmail.com', about: `Я родился в Москве, в семидесятом.
-  На краю города, моча рано ударила в голову:
-  В четыре активно ругался матом.
-  В детском саду девочки впервые показали мне п*зду.
-  Потом школа, вонючая форма.
-  Драки, клей - так я становился сильней.
-  Воровал деньги в раздевалке, в восемь начал курить.
-  В одиннадцать кинул первую палку, забил на родителей.` });
+
+  const dispatch = useDispatch();
+
+
+  const us = useSelector(state => state.user.id)
+
+  const [user, setUser] = useState('');
+  useEffect(() => {
+    const fetchFunc = async () => {
+      const response = await fetch('http://localhost:4000/api/info', {
+        method: 'POST', // или 'PUT'
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ us }),
+      });
+      const json = await response.json();
+      // console.log(json[0]);
+      setUser(json[0]);
+
+    }
+    fetchFunc()
+  }, [us])
+
   return (
     <>
       <div className='user__profile'>
         <div className='userProfile__container'>
           <div className='upper_container'>
             <div className='upper__content'>
-              <img className='upper__content-img' src="https://i.pinimg.com/originals/07/64/86/0764861bfe42489baad5a07850a54b19.gif" alt="" />
+              <img className='upper__content-img' src="https://wallpaperaccess.com/full/203564.jpg" alt="" />
               <div className='left-box__photo'>{ }</div>
             </div>
             <div className='lower__content'>
               <div className='lower__content-leftBox'>
                 <div>
-                  {(true) ? <h3>{state.name} {state.surname}</h3> : <p></p>}
-
-                  <span className='user__span'>{state.email}</span>
+                  {(user) ? <h3>{user.name} {user.surname}</h3> : <h3>{''}</h3>}
+                  {(user) ? <span className='user__span'>{user.location}</span> : <span>{''}</span>}
                 </div>
               </div>
               <div className='lower__content-rightBox'>

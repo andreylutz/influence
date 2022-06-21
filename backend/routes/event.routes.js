@@ -14,6 +14,7 @@ eventRouter.get('/', async (req, res) => {
 // All Events User
 eventRouter.get('/my', async (req, res) => {
   const { user } = req.session;
+
   const events = await Event.findAll({
     order: [['date', 'DESC']],
     where: {
