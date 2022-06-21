@@ -5,7 +5,7 @@ function UserEditPage() {
   const userRole = useSelector((state) => state.user.role)
   return (
     <div>
-      <h1>Страница для внесения данных</h1>
+
       {
         (userRole === 'user') ?
         <UserFormEdit/>

@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .divFormUserEdit {
   display: flex;
   justify-content: center;
@@ -12,3 +18,40 @@
   display: flex;
   justify-content: space-around;
 }
+
+
+.allUsersBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.oneUserBlock {
+  margin: 20px;
+  padding: 10px;
+  width: 250px;
+  background-color: aqua;
+}
+
+.ulOneUser {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.userAvatarBlock {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.userAvatar {
+  width: 150px;
+  text-align: center;
+}
+.hOneTag {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
