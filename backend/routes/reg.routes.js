@@ -16,13 +16,13 @@ regRouter.route('/')
         res.json({ id: user.id, email: user.email, role: user.role });
       } catch (error) {
         res
-          .status(501);
+          .status(501)
+          .json({ message: 'Пользователь с таким именем уже зарегестрирован.' });
         // .send('<script>alert(\'Пользователь с таким именем уже зарегестрирован.\')</script>');
       }
     } else {
       res
         .status(404);
-      // .send('<script>alert(\'Пароль должен быть не менее 8 символов.\')</script>');
     }
   });
 

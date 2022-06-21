@@ -11,6 +11,7 @@ const Signup = () => {
   const nav = useNavigate();
 
   const [show, setShow] = useState(false); 
+  const [text, setText] = useState(''); 
   
 
   const {
@@ -25,21 +26,26 @@ const Signup = () => {
 
 
   const handleClose = async (data) => {
-    const response = await fetch('http://localhost:4000/api/reg', {
+
+      const response = await fetch('http://localhost:4000/api/reg', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       body: JSON.stringify(data),
     });
-
     const user = await response.json();
+    console.log(user)
+    
+    if(user.hasOwnProperty('id')) {
+      dispatch(actionsUser.setUser(user));
+      dispatch(actionsUser.initUser());
+      nav('/');
+      setShow(false);
+    } else {
+      setText((text) => 'Пользователь с таким именем уже зарегестрирован.')
+    }
+  }
 
-    dispatch(actionsUser.setUser(user));
-    dispatch(actionsUser.initUser());
-
-    nav('/');
-    setShow(false);
-  };
 
   return (
     <div id="openRega" className="signup">
@@ -51,6 +57,7 @@ const Signup = () => {
               ×
             </a>
           </div>
+          <p style={{color: 'red',fontSize: '15px'}}>{text}</p>
           <form onSubmit={handleSubmit(handleClose)} className="signup-body">
             <input
             { ...register('userEmail',{
@@ -86,7 +93,7 @@ const Signup = () => {
             } )}
             className="selectorius" 
             >
-              <option value="user" selected>Ваш статус в проекте USER</option>
+              <option value="user" defaultValue>Ваш статус в проекте USER</option>
               <option value="company">Ваш статус в проекте COMPANY</option>
             </select>
             <button
