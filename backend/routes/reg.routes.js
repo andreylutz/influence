@@ -17,7 +17,7 @@ regRouter.route('/')
     if (!key) {
       res
         .status(403)
-        .json({ message: 'Неправильный ключ.' });
+        .json({ message: 'Неверный ключ регистрации.' });
       return;
     }
     const mail = req.body.userEmail;
@@ -38,7 +38,7 @@ regRouter.route('/')
     } else {
       res
         .status(404)
-        .json({ messageUnik: 'Пароли не совпадают.' });
+        .json({ message: 'Пароли не совпадают.' });
     }
   });
 

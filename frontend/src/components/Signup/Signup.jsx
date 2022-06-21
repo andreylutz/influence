@@ -40,7 +40,7 @@ const Signup = () => {
       nav('/');
       setShow(false);
     } else {
-      setText((text) => user.hasOwnProperty('message') ? 'Пользователь с таким именем уже зарегестрирован.' : 'Пароли не совпадают.')
+      setText((text) => user.message)
     }
   }
 
