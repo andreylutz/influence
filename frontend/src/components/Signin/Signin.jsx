@@ -55,7 +55,7 @@ handleSubmit,
               ×
             </a>
           </div>
-          <p style={{color: 'red',fontSize: '15px'}}>{text}</p>
+          <p className='errorMain'>{text}</p>
           <form onSubmit={handleSubmit(handleClose)} className="signin-body">
             <input
             { ...register('userEmail',{
@@ -69,7 +69,7 @@ handleSubmit,
               className="pols"
               placeholder="Введите e-mail"
             />
-             <div style={{height: 40,}}>{errors?.userEmail && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userEmail?.message || "Error!"}</p>}</div>
+             <div className='errorMain' style={{height: 40,}}>{errors?.userEmail && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userEmail?.message || "Error!"}</p>}</div>
             <input
             {...register('userPassword',{
               required: 'Поле обязательно к заполнению.',
@@ -84,7 +84,7 @@ handleSubmit,
               minLength="8"
               placeholder="Введите пароль"
             />
-            <div style={{height: 40,}}>{errors?.userPassword && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPassword?.message || "Error!"}</p>}</div>
+            <div className='errorMain' style={{height: 40,}}>{errors?.userPassword && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPassword?.message || "Error!"}</p>}</div>
             <button
               type='submit'
               className="click"

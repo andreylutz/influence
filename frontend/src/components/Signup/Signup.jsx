@@ -56,7 +56,7 @@ const Signup = () => {
               ×
             </a>
           </div>
-          <p style={{color: 'red',fontSize: '15px'}}>{text}</p>
+          <p className='errorMain'>{text}</p>
           <form onSubmit={handleSubmit(handleClose)} className="signup-body">
             <input
             { ...register('userEmail',{
@@ -70,7 +70,7 @@ const Signup = () => {
               className="pols"
               placeholder="Введите e-mail"
             />
-            <div style={{height: 40,}}>{errors?.userEmail && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userEmail?.message || "Error!"}</p>}</div>
+            <div className='errorMain' style={{height: 40,}}>{errors?.userEmail && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userEmail?.message || "Error!"}</p>}</div>
             <input
             {...register('userPassword',{
               required: 'Поле обязательно к заполнению.',
@@ -84,7 +84,7 @@ const Signup = () => {
               minLength="8"
               placeholder="Придумайте пароль"
             />
-            <div style={{height: 40,}}>{errors?.userPassword && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPassword?.message || "Error!"}</p>}</div>
+            <div className='errorMain' style={{height: 40,}}>{errors?.userPassword && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPassword?.message || "Error!"}</p>}</div>
             {/* <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/> */}
             <select 
             {...register('role',{

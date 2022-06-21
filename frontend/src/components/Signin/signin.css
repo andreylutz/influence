@@ -124,7 +124,7 @@
   border-radius: 5px;
   outline: none;
   background: #F9F0DA;
-  color: #9E9C9C;
+  color: black;
 }
 
 .click {
@@ -141,5 +141,13 @@
 }
 
 .click:hover {
-  color: #F9F0DA;
+  background: #798fe7;
+  color: #ffffff;
+}
+
+
+.errorMain {
+  color: red;
+    font-size: 15px;
+    padding-left: 30px;
 }
