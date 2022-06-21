@@ -7,24 +7,35 @@ import './EventInfo.css';
 const EventInfo = () => {
   const { id } = useParams();
 
+  const userid = useSelector((state) => state.user.id);
+  const userRole = useSelector((state) => state.user.role);
+
   const event = useSelector((state) =>
     state.myEvent.list.find((el) => el.id === Number(id)),
   );
 
   const Subscribe = () => {};
-  // const delEvent = () => {};
+  const delEvent = () => {};
 
   return (
     <div className="eventInfoContainer">
       <div className="eventInfo">
-        <h4>Название: {event.name}</h4>
-        <p>
-          <img style={{ width: '200px' }} src={event.picture} alt="" />
+        <h4 className="eventInfo__title">Название: {event.name}</h4>
+        <div className="eventInfo__desc">Описание: {event.description}</div>
+        <p className="eventInfo__img">
+          <img style={{ width: '250px' }} src={event.picture} alt="" />
         </p>
         <p>Местоположение: {event.location}</p>
 
-        <p>Дата: {event.date}</p>
-        <button onClick={Subscribe}>Отказаться</button>
+        <p className="eventInfo__date">Дата: {event.date}</p>
+        <button className="eventInfo__btn" onClick={Subscribe}>
+          Подписаться
+        </button>
+        {event.user_id === userid && userRole === 'company' && (
+          <button className="eventInfo__btn" onClick={delEvent}>
+            Удалить
+          </button>
+        )}
       </div>
     </div>
   );

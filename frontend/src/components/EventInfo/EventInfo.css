@@ -16,3 +16,9 @@
   border-radius: 19px;
   background-color: #ffffff;
 }
+
+.eventInfo__btn {
+  height: 30px;
+  width: 100px;
+  margin: 5px;
+}

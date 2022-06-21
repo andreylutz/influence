@@ -28,13 +28,14 @@ eventRouter.get('/my', async (req, res) => {
 
 // Add Event
 eventRouter.post('/new', async (req) => {
-  const { name, description, location, date } = req.body.data;
+  const { name, description, location, picture, date } = req.body.data;
   const { user } = req.session;
 
   await Event.create({
     name,
     description,
     location,
+    picture,
     date,
     user_id: user.id,
   });

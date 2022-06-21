@@ -24,5 +24,38 @@
 }
 
 .addEventForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin: 5px;
+}
+
+.form-control {
+  width: 400px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.form-control__input {
+  width: 400px;
+  height: 60px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.btn-events {
+  width: 200px;
+  height: 40px;
+  margin: 5px;
 }
