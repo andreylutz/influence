@@ -11,7 +11,8 @@ const EventInfo = () => {
     state.myEvent.list.find((el) => el.id === Number(id)),
   );
 
-  const delEvent = () => {};
+  const Subscribe = () => {};
+  // const delEvent = () => {};
 
   return (
     <div className="eventInfoContainer">
@@ -23,8 +24,7 @@ const EventInfo = () => {
         <p>Местоположение: {event.location}</p>
 
         <p>Дата: {event.date}</p>
-        {/*<Link to={`/myevent/${event.id}`}>Информация</Link>*/}
-        <button onClick={delEvent}>Отказаться</button>
+        <button onClick={Subscribe}>Отказаться</button>
       </div>
     </div>
   );

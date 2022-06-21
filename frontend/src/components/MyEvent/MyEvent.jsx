@@ -4,18 +4,15 @@ import { Link } from 'react-router-dom';
 import './MyEvent.css';
 
 const MyEvent = ({ event }) => {
-  const Subscribe = () => {};
-
   return (
     <li className="my-event">
-      <h4>Название: {event.name}</h4>
-      <p>Местоположение: {event.location}</p>
+      <h5 className="my-event__name">Название: {event.name}</h5>
+      <p className="my-event__location">{event.location}</p>
       <p>
         <img style={{ width: '100px' }} src={event.picture} alt="" />
       </p>
-      <p>Дата: {event.date.toLocaleString()}</p>
+      <p>Дата: {event.date}</p>
       <Link to={`/myevent/${event.id}`}>Информация</Link>
-      <button onClick={Subscribe}>Подписаться</button>
     </li>
   );
 };

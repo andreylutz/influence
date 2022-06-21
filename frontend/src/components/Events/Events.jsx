@@ -12,14 +12,16 @@ export const MyEvents = () => {
 
   useEffect(() => {
     dispatch(getEvents());
-  }, []);
+  }, [dispatch]);
 
   return (
-    <ul className="my-events-list">
-      {myEvents.map((el) => (
-        <MyEvent event={el} key={el.id} />
-      ))}
-    </ul>
+    <div className="container-event">
+      <ul className="my-events-list">
+        {myEvents.map((el) => (
+          <MyEvent event={el} key={el.id} />
+        ))}
+      </ul>
+    </div>
   );
 };
 

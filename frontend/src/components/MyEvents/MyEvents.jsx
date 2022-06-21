@@ -93,11 +93,13 @@ export const MyEvents = () => {
         </>
       )}
 
-      <ul className="my-events-list">
-        {myEvents.map((el) => (
-          <MyEvent event={el} key={el.id} />
-        ))}
-      </ul>
+      <div className="container-event">
+        <ul className="my-events-list">
+          {myEvents.map((el) => (
+            <MyEvent event={el} key={el.id} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
