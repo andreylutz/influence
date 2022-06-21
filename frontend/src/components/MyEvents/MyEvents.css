@@ -3,4 +3,15 @@
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+
+  margin-top: 20px;
+}
+
+.eventTitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.addEventForm {
+  margin-bottom: 20px;
 }

@@ -13,9 +13,13 @@ const Main = () => {
       <Signin />
 
       <nav className={styles.navMain}>
-        <a className={styles.cipher} id={styles.navTwo} href="#openAuth">Авторизация</a>
+        <a className={styles.cipher} id={styles.navTwo} href="#openAuth">
+          Авторизация
+        </a>
         <hr />
-        <a className={styles.cipher} id={styles.nav} href="#openRega">Регистрация</a>
+        <a className={styles.cipher} id={styles.nav} href="#openRega">
+          Регистрация
+        </a>
       </nav>
       <div className={`${styles.row} ${styles.rowBackground} ${styles.skew}`}>
         <div className={styles.column}>

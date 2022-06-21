@@ -12,8 +12,8 @@ const eventRouter = require('./routes/event.routes');
 const regRouter = require('./routes/reg.routes');
 const logoutRoutes = require('./routes/logout.routes');
 const authRouter = require('./routes/auth.routes');
-
 const settingsRoute = require('./routes/settings.router');
+const infoRouter = require('./routes/info.routes');
 
 const { sequelize } = require('./db/models');
 
@@ -28,6 +28,7 @@ app.use('/api/events', eventRouter);
 app.use('/api/reg', regRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/logout', logoutRoutes);
+app.use('/api/info', infoRouter);
 
 app.listen(PORT, async () => {
   console.log('Веб-сервер слушает порт', PORT);

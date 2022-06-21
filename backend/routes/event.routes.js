@@ -14,6 +14,7 @@ eventRouter.get('/', async (req, res) => {
 // All Events User
 eventRouter.get('/my', async (req, res) => {
   const { user } = req.session;
+
   const events = await Event.findAll({
     order: [['date', 'DESC']],
     where: {
@@ -26,17 +27,17 @@ eventRouter.get('/my', async (req, res) => {
 });
 
 // Add Event
-eventRouter.post('/new', async (req, res) => {
-  const { event_name, location, date } = req.body;
+eventRouter.post('/new', async (req) => {
+  const { name, description, location, date } = req.body.data;
   const { user } = req.session;
 
-  const parties = await Event.create({ event_name, location, date, user_id: user.id });
-  try {
-    await parties.save();
-    res.redirect('/parties');
-  } catch (err) {
-    res.status(401).end();
-  }
+  await Event.create({
+    name,
+    description,
+    location,
+    date,
+    user_id: user.id,
+  });
 });
 
 module.exports = eventRouter;
