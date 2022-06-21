@@ -8,6 +8,7 @@ module.exports = authRouter;
 
 authRouter.route('/')
   .post(async (req, res) => {
+    // console.log(req.body);
     let user;
     try {
       user = await User.findOne({
@@ -15,13 +16,13 @@ authRouter.route('/')
       });
     } catch (error) {
       res
-        .status(500)
-        .json({ message: error.message });
+        .status(500);
+      // .json({ message: error.message });
     }
     if (!user) {
       res
-        .status(404)
-        .send('<script>alert(\'Имя пользователя или пароль не верный\')</script>');
+        .status(403);
+      // .send('<script>alert(\'Имя пользователя или пароль не верный\')</script>');
       return;
     }
     let similar;
@@ -34,11 +35,12 @@ authRouter.route('/')
     }
     if (!similar) {
       res
-        .status(404);
+        .status(403);
       // .send('<script>alert(\'Имя пользователя или пароль не верный\')</script>');
     }
 
     req.session.user = user;
+    // res.json({ id: user.id, email: user.email, role: user.role });
     res.json({ id: user.id, email: user.email, role: user.role });
   });
 

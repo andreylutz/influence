@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { actionsUser } from '../../actions/actionsUser';
@@ -6,23 +7,28 @@ import { actionsUser } from '../../actions/actionsUser';
 import './signin.css';
 
 const Signin = () => {
+
+const {
+register,
+formState: {
+  errors,
+},
+handleSubmit,
+} = useForm({
+  mode: 'onBlur',
+});
+ 
   const dispatch = useDispatch();
   const nav = useNavigate();
 
-  const [show, setShow] = useState(false); // не используем show модельные окна
-  const inputtwo = useRef();
-  const inputthree = useRef();
+  const [show, setShow] = useState(false); 
 
-  const handleClose = async (event) => {
-    event.preventDefault();
+  const handleClose = async (data) => {
     const response = await fetch('http://localhost:4000/api/auth', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-      body: JSON.stringify({
-        userEmail: inputtwo.current.value,
-        userPassword: inputthree.current.value,
-      }),
+      body: JSON.stringify(data),
     });
     const user = await response.json();
 
@@ -32,6 +38,7 @@ const Signin = () => {
     nav('/');
     setShow(false);
   };
+
 
   return (
     <div id="openAuth" className="signin">
@@ -43,30 +50,43 @@ const Signin = () => {
               ×
             </a>
           </div>
-          <div className="signin-body">
+          <form onSubmit={handleSubmit(handleClose)} className="signin-body">
             <input
-              ref={inputtwo}
+            { ...register('userEmail',{
+              required: 'Поле обязательно к заполнению.',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Неверный адрес электронной почты."
+              }
+            } )}
               type="email"
               className="pols"
-              name="userEmail"
               placeholder="Введите e-mail"
             />
+             <div style={{height: 40,}}>{errors?.userEmail && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userEmail?.message || "Error!"}</p>}</div>
             <input
-              ref={inputthree}
+            {...register('userPassword',{
+              required: 'Поле обязательно к заполнению.',
+              minLength: {
+                value: 8,
+                message: 'Минимум 8 символов'
+              }
+            } )}
               type="password"
               className="pols"
-              name="userPassword"
+              id="myInput"
+              minLength="8"
               placeholder="Введите пароль"
             />
+            <div style={{height: 40,}}>{errors?.userPassword && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPassword?.message || "Error!"}</p>}</div>
             <button
-              onClick={handleClose}
-              type="button"
+              type='submit'
               className="click"
               name="authBatton"
             >
               Войти
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

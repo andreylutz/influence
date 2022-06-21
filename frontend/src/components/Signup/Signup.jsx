@@ -1,30 +1,35 @@
 import React, { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { actionsUser } from '../../actions/actionsUser';
 
-import './signup.css';// feprf
+import './signup.css';
 
 const Signup = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
 
-  const [show, setShow] = useState(false); // не используем show модельные окна
-  const inputtwo = useRef();
-  const inputthree = useRef();
-  const inputfor = useRef();
+  const [show, setShow] = useState(false); 
+  
 
-  const handleClose = async (event) => {
-    event.preventDefault();
+  const {
+    register,
+    formState: {
+      errors,
+    },
+    handleSubmit,
+    } = useForm({
+      mode: 'onBlur',
+    });
+
+
+  const handleClose = async (data) => {
     const response = await fetch('http://localhost:4000/api/reg', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-      body: JSON.stringify({
-        userEmail: inputtwo.current.value,
-        userPassword: inputthree.current.value,
-        role: inputfor.current.value,
-      }),
+      body: JSON.stringify(data),
     });
 
     const user = await response.json();
@@ -46,35 +51,52 @@ const Signup = () => {
               ×
             </a>
           </div>
-          <div className="signup-body">
+          <form onSubmit={handleSubmit(handleClose)} className="signup-body">
             <input
-              ref={inputtwo}
+            { ...register('userEmail',{
+              required: 'Поле обязательно к заполнению.',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Неверный адрес электронной почты."
+              }
+            } )}
               type="email"
               className="pols"
-              name="userEmail"
               placeholder="Введите e-mail"
             />
+            <div style={{height: 40,}}>{errors?.userEmail && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userEmail?.message || "Error!"}</p>}</div>
             <input
-              ref={inputthree}
+            {...register('userPassword',{
+              required: 'Поле обязательно к заполнению.',
+              minLength: {
+                value: 8,
+                message: 'Минимум 8 символов'
+              }
+            } )}
               type="password"
               className="pols"
-              name="userPassword"
+              minLength="8"
               placeholder="Придумайте пароль"
             />
+            <div style={{height: 40,}}>{errors?.userPassword && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPassword?.message || "Error!"}</p>}</div>
             {/* <input ref={inputthree} type='password' className='pols' name='userPasswordRepeat' placeholder='Подтвердите пароль'/> */}
-            <select ref={inputfor} className="selectorius" name="role">
-              <option value="user">Ваш статус в проекте USER</option>
+            <select 
+            {...register('role',{
+              required: 'Поле обязательно к заполнению.',
+            } )}
+            className="selectorius" 
+            >
+              <option value="user" selected>Ваш статус в проекте USER</option>
               <option value="company">Ваш статус в проекте COMPANY</option>
             </select>
             <button
-              onClick={handleClose}
-              type="button"
+              type='submit'
               className="click"
               name="authBatton"
             >
               Зарегистрироваться
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
