@@ -1,40 +1,47 @@
-const authRouter = require('express').Router();
 const bcrypt = require('bcryptjs');
-
-const { User } = require('../db/models/index');
+const authRouter = require('express').Router();
+const { User } = require('../db/models');
 
 // POST создать сессию (login, вход)
-authRouter.post('/', async (req, res) => {
-  let user;
-  const { userEmail, password } = req.body;
-  try {
-    user = await User.findOne({
-      where: { email: userEmail },
-    });
-  } catch (error) {
-    res.json({ error: 'Server error' });
-    return;
-  }
 
-  if (!user) {
-    res.json({ error: 'Error: user does not exist. You should register first.' });
-    return;
-  }
+module.exports = authRouter;
 
-  let isSame;
-  try {
-    isSame = await bcrypt.compare(password, user.password);
-  } catch (error) {
-    res.json({ error: 'Server error 2' });
-    return;
-  }
+authRouter.route('/')
+  .post(async (req, res) => {
+    let user;
+    try {
+      user = await User.findOne({
+        where: { email: req.body.userEmail },
+      });
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: error.message });
+    }
+    if (!user) {
+      res
+        .status(403)
+        .json({ message: 'Имя пользователя или пароль не верный.' });
+      return;
+    }
 
-  if (!isSame) {
-    res.json({ error: 'Error: password or login is incorrect' });
-    return;
-  }
-  req.session.user = user;
-  res.json({ id: user.id, email: user.email, role: user.role });
-});
+    let similar;
+    try {
+      similar = await bcrypt.compare(req.body.userPassword, user.password);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: error.message });
+    }
+    if (!similar) {
+      res
+        .status(403)
+        .json({ message: 'Имя пользователя или пароль не верный.' });
+      return;
+    }
+
+    req.session.user = user;
+    res.json({ id: user.id, email: user.email, role: user.role });
+  });
 
 module.exports = authRouter;

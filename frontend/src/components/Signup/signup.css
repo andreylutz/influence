@@ -14,7 +14,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  /* background: rgba(0,0,0,0.5); */
+  background: rgba(0,0,0,0.5); /* цвет фона */
   z-index: 1050;
   opacity: 0; /* по умолчанию модальное окно прозрачно */
   -webkit-transition: opacity 200ms ease-in; 
@@ -28,6 +28,7 @@
 .signup:target {
   opacity: 1; /* делаем окно видимым */
   pointer-events: auto; /* элемент видим для событий мыши */
+  overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
 }
 /* ширина модального окна и его отступы от экрана */
 .signup-dialog {
@@ -37,7 +38,7 @@
 }
 @media (min-width: 576px) {
 .signup-dialog {
-    max-width: 600px;
+    max-width: 500px;
     margin: 150px auto; /* для отображения модального окна по центру */
 }
 }
@@ -53,27 +54,18 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  background: inherit;
-  /* background-color: rgba(191, 241, 226); */
+  background-color: rgba(237, 237, 237);
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  border: 1px solid rgba(43, 43, 43, 0.568);
+  border: 1px solid rgba(0,0,0,.2);
   border-radius: .3rem;
   outline: 0;
-
-  height: 400px;
-  width: 620px;
-  background: inherit;
-  border-radius: 15px;
-  border: 1px solid rgba(43, 43, 43, 0.568);
-  position: absolute;
 }
-
 @media (min-width: 768px) {
-  .signup-content {
+.signup-content {
     -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
-  }
+}
 }
 /* свойства для заголовка модального окна */
 .signup-header {
@@ -125,12 +117,12 @@
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
-  height: 350px;
+  height: 300px;
   flex: 1 1 auto;
-  padding: 35px;
+  padding: 15px;
   overflow: auto;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: stretch;
 }
 
@@ -141,11 +133,12 @@
   border: 2px solid #7BA7AB;
   border-radius: 5px;
   outline: none;
-  background: #F9F0DA;
-  color: #9E9C9C;
+  background: #ffffff;
+  color: #000000;
 }
 
 .click {
+  margin-top: 20px;
   font-family: FontAwesome;
   font-size: 16px;
   position: relative;
@@ -159,5 +152,28 @@
 }
 
 .click:hover {
-  color: #F9F0DA;
+  background: #7BA7AB;
+  color: #ffffff;
 }
+
+.selectorius {
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  border: 2px solid #7BA7AB;
+  border-radius: 5px;
+  outline: none;
+  background: #F9F0DA;
+  color: #000000;
+}
+
+.errorMain {
+  color: red;
+    font-size: 15px;
+    padding-left: 30px;
+}
+
+	/* background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat; */
+
+
+	/* background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat; */

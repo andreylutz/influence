@@ -10,7 +10,7 @@ padding-left: 50px;
 }
 
 #nav:hover {
-  color:blue
+  color:rgba(200, 0, 255, 0.402)
 }
 
 #navTwo {
@@ -19,17 +19,17 @@ padding-left: 50px;
 }
 
 #navTwo:hover {
-  color:blue
+  color:rgba(0, 68, 255, 0.45)
 }
 
-/* body {
+.main {
   color: black;
   font-family: "Montserrat", sans-serif;
   font-size: clamp(1rem, 2.28vw, 1.5rem);
   line-height: 1.54;
   font-weight: 500;
   margin: 100px 0;
-} */
+}
 
 @media (min-width: 200px) {
   body {
@@ -46,19 +46,25 @@ padding-left: 50px;
   }
 }
 
-/* h2 {
+.titles {
   font-size: clamp(3.5rem, 8vw, 5.25rem);
   font-weight: 800;
   margin-bottom: 16px;
-} */
-/* 
-p {
-  margin: 1em 0;
-} */
+}
 
-/* img {
-  width: 100%;
-} */
+.styles {
+  margin: 1em 0;
+}
+
+.buteful {
+  position: relative;
+  left: 30%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 80%;
+}
 
 .row {
   display: flex;
@@ -77,15 +83,6 @@ p {
 
 .skew {
   transform: skewY(-11.5deg);
-
-  .media {
-    transform: skewY(-11.5deg);
-  }
-
-  .mediaImg,
-  .mediaContent {
-    transform: skewY(11.5deg);
-  }
 }
 
 .column {
@@ -105,6 +102,7 @@ p {
 }
 
 .mediaImg {
+  border-radius: 15px;
   align-self: center;
 }
 
@@ -115,8 +113,27 @@ p {
 }
 
 .influnce {
-  width: 50px;
-  font-size: 100px;
   position: relative;
-  left: 30%;
-}
+  left: 23%;
+  font-size: 9vw;
+  line-height: 8vw;
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 3900;
+  background: url(https://raw.githubusercontent.com/s1mpson/-/master/codepen/black-lives-matter/victim-collage.png);
+  background-size: 40%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,0.08);
+  animation: zoomout 10s ease 500ms forwards;
+  }
+  
+  @keyframes zoomout {
+  from {
+    background-size: 40%;
+  }
+  to {
+    background-size: 10%;
+  }
+  }
+
