@@ -98,16 +98,15 @@ const Signup = () => {
               placeholder="Подтвердите пароль"
             />
             <div className='errorMain' style={{height: 40,}}>{errors?.userPasswordRepl && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userPasswordRepl?.message || "Error!"}</p>}</div>
-            {/* <input
-            {...register('userKey',{
-              required: 'Поле обязательно к заполнению.'
-            } )}
-              type="text"
-              className="pols"
-              minLength="8"
-              placeholder="Введите уникальный ключ регистрации"
-            />
-            <div className='errorMain' style={{height: 40,}}>{errors?.userKey && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userKey?.message || "Error!"}</p>}</div> */}
+              <input
+              {...register('userKey',{
+                required: 'Поле обязательно к заполнению.'
+              } )}
+                type="text"
+                className="pols"
+                placeholder="Введите уникальный ключ регистрации"
+              />
+              <div className='errorMain' style={{height: 40,}}>{errors?.userKey && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userKey?.message || "Error!"}</p>}</div>
             <select 
             {...register('role',{
               required: 'Поле обязательно к заполнению.',
