@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { actionsUser } from '../../actions/actionsUser';
 
 import './signup.css';
+import './Button.scss';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const Signup = () => {
         <div className="signup-content">
           <div className="signup-header">
             <h3 className="signup-title">Регистрация</h3>
-            <a href="/" title="Close" className="close">
+            <a href="/" title="Close" className="signup-close">
               ×
             </a>
           </div>
@@ -66,7 +67,7 @@ const Signup = () => {
               }
             } )}
               type="email"
-              className="pols"
+              className="signup-pols"
               placeholder="Введите e-mail"
             />
             <div className='errorMain' style={{height: 40,}}>{errors?.userEmail && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userEmail?.message || "Error!"}</p>}</div>
@@ -79,7 +80,7 @@ const Signup = () => {
               }
             } )}
               type="password"
-              className="pols"
+              className="signup-pols"
               minLength="8"
               placeholder="Придумайте пароль"
             />
@@ -93,7 +94,7 @@ const Signup = () => {
               }
             } )}
               type="password"
-              className="pols"
+              className="signup-pols"
               minLength="8"
               placeholder="Подтвердите пароль"
             />
@@ -103,7 +104,7 @@ const Signup = () => {
                 required: 'Поле обязательно к заполнению.'
               } )}
                 type="text"
-                className="pols"
+                className="signup-pols"
                 placeholder="Введите уникальный ключ регистрации"
               />
               <div className='errorMain' style={{height: 40,}}>{errors?.userKey && <p style={{color: 'red',fontSize: '13px'}}>{errors?.userKey?.message || "Error!"}</p>}</div>
@@ -111,15 +112,15 @@ const Signup = () => {
             {...register('role',{
               required: 'Поле обязательно к заполнению.',
             } )}
-            className="selectorius" 
+            className="signup-selectorius" 
             >
-              <option value="user" defaultValue>Ваш статус в проекте USER</option>
-              <option value="company">Ваш статус в проекте COMPANY</option>
+              <option value="user" defaultValue>Ваш статус USER</option>
+              <option value="company">Ваш статус COMPANY</option>
             </select>
             <button
               type='submit'
-              className="click"
-              name="authBatton"
+              className="signup-click"
+              name="signup-authBatton"
             >
               Зарегистрироваться
             </button>

@@ -34,6 +34,7 @@
 }
 /* свойства для блока, содержащего контент модального окна */ 
 .signin-content {
+  padding-left: 25px;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -75,10 +76,12 @@
   border-bottom: 1px solid #eceeef;
 }
 .signin-title {
+  font-weight: 900;
+  color: #55777a;
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.5;
-  font-size: 1.25rem;
+  font-size: 30px;
   font-weight: 500;
 }
 /* свойства для кнопки "Закрыть" */
@@ -95,7 +98,7 @@
 }
 /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
 .close:focus, .close:hover {
-  color: #000;
+  color: rgb(255, 0, 0);
   text-decoration: none;
   cursor: pointer;
   opacity: .75;
@@ -108,6 +111,7 @@
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   height: 250px;
+  width: 450px;
   flex: 1 1 auto;
   padding: 15px;
   overflow: auto;
@@ -120,14 +124,14 @@
   width: 100%;
   height: 42px;
   padding-left: 10px;
-  border: 2px solid #7BA7AB;
+  border: 1px solid #7BA7AB;
   border-radius: 5px;
   outline: none;
-  background: #F9F0DA;
+  background: #ffffff;
   color: black;
 }
 
-.click {
+/* .click {
   font-family: FontAwesome;
   font-size: 16px;
   position: relative;
@@ -143,7 +147,7 @@
 .click:hover {
   background: #798fe7;
   color: #ffffff;
-}
+} */
 
 
 .errorMain {

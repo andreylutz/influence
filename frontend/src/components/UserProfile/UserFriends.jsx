@@ -1,16 +1,80 @@
 import React from 'react'
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { actionsUser } from '../../actions/actionsUser';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function UserFriends() {
 
-  
+  const uniKey = uuidv4();
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+  const mainEmail = useSelector(state => state.user.email)
+
+  const {
+    register,
+    formState: {
+      errors,
+    },
+    handleSubmit,
+    reset,
+    } = useForm({
+      mode: 'onBlur',
+    });
+
+    const handleClose = async (data) => {
+
+
+
+      const response = await fetch('http://localhost:4000/api/email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        ...data, uniKey, mainEmail
+      }),
+    });
+    const user = await response.json();
+      dispatch(actionsUser.setUser(user));
+      dispatch(actionsUser.initUser());
+      nav('/');
+      reset()
+  }
+
   return (
     <div className='user__friends-container'>
       <div className="user__friends-box">
-        <h5>Друзья</h5>
+          <h3>Отправить приглашение</h3>
+        <form onSubmit={handleSubmit(handleClose)} className="frends-body">
+          <div className='errorFrends' style={{height: 40,}}>{errors?.FrendsEmail && <p style={{color: 'green',fontSize: '13px'}}>{errors?.FrendsEmail?.message || "Error!"}</p>}</div>
+          <input
+            { ...register('FrendsEmail',{
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Упс... Мы не можем отправить приглашение на этот адрес =("
+              }
+            } )}
+              type="text"
+              className="frends-pols"
+              placeholder="Введите e-mail"
+            />
+          <button
+              type='submit'
+              className="frends-click"
+              name="frends-Batton"
+            >
+              Отправить
+            </button>
+        </form>
+        </div>
+    {/* <div className="user__friends-box">
         <ul>
-          {}
+          {
+          
+          }
         </ul>
-      </div>
+      </div> */}
     </div>
   )
 }
