@@ -24,7 +24,8 @@ emailRouter.route('/')
     };
     mailer(message);
     res
-      .status(200);
+      .status(200)
+      .json({ message: 'frends__img-block' });
   });
 
 module.exports = emailRouter;
