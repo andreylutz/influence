@@ -37,12 +37,13 @@ export const login = (email, password) => {
 export const auth = () => {
   return async (dispatch) => {
     try {
-      await instance.post(`/logout`);
-
-      dispatch(actionsUser.logout());
-      dispatch(actionsUser.setUser(''));
+      if (localStorage.getItem('token')) {
+        dispatch(actionsUser.setUser(''));
+      } else {
+        dispatch(actionsUser.logout());
+      }
     } catch (e) {
-      console.log(e.response.data);
+      localStorage.removeItem('token');
     }
   };
 };

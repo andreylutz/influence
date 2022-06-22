@@ -46,10 +46,11 @@ eventRouter.post('/new', async (req, res) => {
 // Remove Event
 eventRouter.delete('/:id', async (req, res) => {
   const { id } = req.session.user;
-  // console.log('Params ================>>>', req.params.id);
-  const findEvent = await Event.findOne({ where: { id: req.params.id } });
+  const eventId = Number(req.params.id);
 
-  if (id === findEvent.user_id) {
+  const findEvent = await Event.findOne({ where: { id: eventId } });
+
+  if (Number(id) === findEvent.user_id) {
     if (findEvent) {
       await findEvent.destroy();
       res.sendStatus(204);

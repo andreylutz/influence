@@ -28,6 +28,8 @@ export const MyEvents = () => {
     const eventDate = e.target.eventDate.value;
 
     dispatch(addEvent(eventName, eventDescription, location, picture, eventDate));
+
+    e.target.reset();
   };
 
   return (
