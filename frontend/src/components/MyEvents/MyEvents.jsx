@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -7,7 +7,7 @@ import MyEvent from '../MyEvent/MyEvent';
 import './MyEvents.css';
 
 export const MyEvents = () => {
-  const [update, setUpdate] = useState(false);
+  // const [update, setUpdate] = useState(false);
 
   const myEvents = useSelector((state) => state.myEvent.list);
   const userRole = useSelector((state) => state.user.role);
@@ -16,9 +16,7 @@ export const MyEvents = () => {
 
   useEffect(() => {
     dispatch(getMyEvents());
-    console.log('Запрос!!!');
-    console.log('update', update);
-  }, [dispatch, update]);
+  }, [dispatch]);
 
   const addNewEvent = (e) => {
     e.preventDefault();
@@ -30,9 +28,6 @@ export const MyEvents = () => {
     const eventDate = e.target.eventDate.value;
 
     dispatch(addEvent(eventName, eventDescription, location, picture, eventDate));
-
-    // dispatch(getMyEvents());
-    setUpdate(!update);
   };
 
   return (

@@ -27,9 +27,9 @@ export const getMyEvents = () => {
 
 // Add Event
 export const addEvent = (eventName, eventDescription, location, picture, eventDate) => {
-  return async () => {
+  return async (dispatch) => {
     try {
-      await instance.post(`/events/new`, {
+      const response = await instance.post(`/events/new`, {
         data: {
           name: eventName,
           description: eventDescription,
@@ -38,6 +38,21 @@ export const addEvent = (eventName, eventDescription, location, picture, eventDa
           date: eventDate,
         },
       });
+
+      dispatch(actionsMyEvents.addEvent(response.data.data));
+    } catch (e) {
+      alert(e.response.data.detail);
+    }
+  };
+};
+
+// Remove Event
+export const removeEvent = (idEvent) => {
+  return async (dispatch) => {
+    try {
+      await instance.delete(`/events/${idEvent}`);
+
+      dispatch(actionsMyEvents.removeMyEvent(idEvent));
     } catch (e) {
       alert(e.response.data.detail);
     }

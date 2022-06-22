@@ -1,12 +1,15 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './EventInfo.css';
+import { removeEvent } from '../../api/Events';
 
 const EventInfo = () => {
   const { id } = useParams();
+  const nav = useNavigate();
 
+  const dispatch = useDispatch();
   const userid = useSelector((state) => state.user.id);
   const userRole = useSelector((state) => state.user.role);
 
@@ -15,7 +18,11 @@ const EventInfo = () => {
   );
 
   const Subscribe = () => {};
-  const delEvent = () => {};
+
+  const delEvent = (id) => {
+    dispatch(removeEvent(id));
+    nav('/myevent');
+  };
 
   return (
     <div className="eventInfoContainer">
