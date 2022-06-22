@@ -42,13 +42,14 @@ export default function UserFriends() {
       // nav('/');
       reset()
       setMail((mail) => user.message)
-      setTimeout(() => setMail((mail) => "frends__img-none"), 3200)
+      setTimeout(() => setMail((mail) => "frends__img-none"), 3500)
   }
 
   return (
     <div className='user__friends-container'>
       <div className="user__friends-box">
           <h3>Отправить приглашение</h3>
+          <img className={mail} src='http://www.maxphoto.lu/contact-form/files/mikaflakes_mailicon_2.gif'/>
         <form onSubmit={handleSubmit(handleClose)} className="frends-body">
           <div className='errorFrends' style={{height: 40,}}>{errors?.FrendsEmail && <p style={{color: 'green',fontSize: '13px'}}>{errors?.FrendsEmail?.message || "Error!"}</p>}</div>
           <input
@@ -71,7 +72,6 @@ export default function UserFriends() {
               Отправить
             </button>
         </form>
-        <img className={mail} src='http://www.maxphoto.lu/contact-form/files/mikaflakes_mailicon_2.gif'/>
         </div>
     {/* <div className="user__friends-box">
         <ul>
