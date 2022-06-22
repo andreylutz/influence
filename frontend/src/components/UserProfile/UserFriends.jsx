@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { actionsUser } from '../../actions/actionsUser';
 import { v4 as uuidv4 } from 'uuid';
+import './UserFriends.css';
 
 export default function UserFriends() {
 
