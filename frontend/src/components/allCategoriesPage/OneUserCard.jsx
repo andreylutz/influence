@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './userPage.css'
 function OneUserCard ({oneUser}) {
-  // console.log('====================>', oneUser);
+  console.log('====================>', oneUser);
+  const caterLabel = 'Пользователь';
   return (
     <div className="oneUserBlock">
       <div className='userAvatarBlock'>
@@ -12,6 +13,7 @@ function OneUserCard ({oneUser}) {
         <li>Возраст: <span>{oneUser['User_about.age']}</span> </li>
         <li>Локация: <span>{oneUser['User_about.location']}</span> </li>
         <li>Интересы: <span>{oneUser['Skills.name']}</span> </li>
+        <li>Категория: <span>{caterLabel}</span> </li>
       </ul>
     </div>
   )

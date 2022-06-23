@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './userPage.css'
 function OneCompanyCard ({oneCompany}) {
+  const caterLabel = 'Компания';
   return (
     <div className="oneUserBlock">
       <div className='userAvatarBlock'>
@@ -10,6 +11,7 @@ function OneCompanyCard ({oneCompany}) {
         <li className='liListOneUser'>Имя: <span>{oneCompany['Company_about.companyName']}</span> </li>
         <li>Локация: <span>{oneCompany['Company_about.location']}</span> </li>
         <li>Интересы: <span>{oneCompany['Skills.name']}</span> </li>
+        <li>Категория: <span>{caterLabel}</span> </li>
       </ul>
     </div>
   )

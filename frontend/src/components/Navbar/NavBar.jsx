@@ -12,7 +12,9 @@ function NavBar() {
       credentials: 'include',
 
     })
+    localStorage.clear()
     dispatch(actionsUser.logout());
+
   }
   return (
     <div className='headerContainer'>
