@@ -3,7 +3,7 @@
   min-height: 293px;
   /*max-width: 250px;*/
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 7px;
   padding: 15px;
 
   background-color: rgb(237, 237, 237);
@@ -11,8 +11,14 @@
 }
 
 .eventInfo {
-  padding: 15px;
-  min-height: 264px;
+  padding: 20px;
+  min-height: 290px;
   border-radius: 19px;
   background-color: #ffffff;
+}
+
+.eventInfo__btn {
+  height: 30px;
+  width: 100px;
+  margin: 5px;
 }

@@ -1,10 +1,21 @@
+.container-event {
+  /*margin-top: 7px;*/
+  margin-right: 20px;
+  padding: 5px 15px;
+
+  background-color: rgb(237, 237, 237);
+}
+
 .my-events-list {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
 
-  margin-top: 20px;
+  margin-top: 16px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 19px;
 }
 
 .eventTitle {
@@ -13,5 +24,38 @@
 }
 
 .addEventForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin: 5px;
+}
+
+.form-control {
+  width: 400px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.form-control__input {
+  width: 400px;
+  height: 60px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.btn-events {
+  width: 200px;
+  height: 40px;
+  margin: 5px;
 }

@@ -9,18 +9,23 @@ module.exports = {
       },
       name: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       location: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       picture: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
+        allowNull: false,
       },
       user_id: {
         allowNull: false,
