@@ -62,13 +62,14 @@ export default function UserStatus() {
             <button className='user__status-btn'>Добавить</button>
           </form>
         </div>
-        <div className='user__status-notes'>
+        {(notes.length === 0) ? <p></p> : <div className='user__status-notes'>
           <h4 className='user__status-title'>Заметки:</h4>
           {/* <p>{state[0].title}</p> */}
           <ul>
-            {notes.map((el) => <Note el={el}/>)}
+            {notes.map((el) => <Note el={el} />)}
           </ul>
-        </div>
+        </div>}
+
       </div>
     </div>
   )

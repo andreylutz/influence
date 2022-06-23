@@ -34,7 +34,7 @@ export default function UserStatic() {
       // setUser(json[0]);
     }
     fetchFunc()
-  }, [us])
+  }, [])
 
   return (
     <>
@@ -77,7 +77,7 @@ export default function UserStatic() {
             <div className='userProfile__container'>
               <div className='upper_container'>
                 <div className='upper__content'>
-                  <img className='upper__content-img' src="https://wallpaperaccess.com/full/203564.jpg" alt="" />
+                  <img className='upper__content-img' src="https://pa1.narvii.com/6433/0fb7c75a4bfd501a61047752c1d0caadb404c8b6_hq.gif" alt="" />
                   <div className='left-box__photo'><img src={user.logo} alt="" /></div>
                 </div>
                 <div className='lower__content'>
@@ -88,7 +88,7 @@ export default function UserStatic() {
                     </div>
                   </div>
                   <div className='lower__content-rightBox'>
-                    <button className='addFriend__button'>Add friend</button>
+                    <button  className='addFriend__button'>Add friend</button>
                     <button className='settings__button'>settings</button>
                   </div>
                 </div>

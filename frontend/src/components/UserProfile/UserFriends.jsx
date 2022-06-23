@@ -39,8 +39,8 @@ export default function UserFriends() {
     });
     const user = await response.json();
     console.log(user.message)
-    dispatch(actionsUser.setUser(user));
-    dispatch(actionsUser.initUser());
+    // dispatch(actionsUser.setUser(user));
+    // dispatch(actionsUser.initUser());
     reset()
     setMail((mail) => 'frends__img-block')
     setTimeout(() => setMail((mail) => "frends__img-none"), 3500)
@@ -49,7 +49,7 @@ export default function UserFriends() {
   return (
     <div className='user__friends-container'>
       <div className="user__friends-box">
-        <h3>Отправить приглашение</h3>
+        <h4>Отправить приглашение</h4>
         <form onSubmit={handleSubmit(handleClose)} className="frends-body">
           <div className='errorFrends' style={{ height: 40, }}>{errors?.FrendsEmail && <p style={{ color: 'green', fontSize: '13px' }}>{errors?.FrendsEmail?.message || "Error!"}</p>}</div>
           <input

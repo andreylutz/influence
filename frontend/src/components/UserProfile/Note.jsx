@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import '../UserProfile/UserProfile.css'
 
 import { actionNotes } from '../../actions/actionNotes';
 
@@ -11,7 +11,7 @@ export default function Note({ el }) {
   // const us = useSelector(state => state.user.id)
 
 
-  
+
   const delItem = async () => {
     const response = await fetch(`http://localhost:4000/api/notes/${el.id}`, {
       method: 'DELETE',
@@ -24,12 +24,20 @@ export default function Note({ el }) {
     nav('/info')
   }
 
-  
+
 
 
 
 
   return (
-    <li key={el.id}>{el.title}<button onClick={delItem}>delete</button></li>
+    <li className='singleNote' key={el.id}>
+      <div>
+        <h4>{el.title}</h4>
+        <p>{el.description}</p>
+      </div>
+      <div>
+        <button className='singleBtn' onClick={delItem}>delete</button>
+      </div>
+    </li>
   )
 }

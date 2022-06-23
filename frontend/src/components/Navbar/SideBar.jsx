@@ -17,7 +17,6 @@ function SideBar() {
               <li><Link to={'/event'}>Мероприятия</Link></li>
               <li><Link to={'/myevent'}>Мои мероприятия</Link></li>
               <li><Link to={'/influencers'}>Инфлюенсеры</Link></li>
-              <li><Link to={'/contacts'}>Контакты</Link></li>
             </ul>
           </nav>
         </div>
@@ -30,8 +29,6 @@ function SideBar() {
         <Aside />
       </div>
     </div>
-
-
   )
 }
 

@@ -58,6 +58,7 @@ a {
 
 .fb-second {
   width: 950px;
+  /* min-width: 950px; */
   background-color: rgb(236, 236, 236);
 }
 
