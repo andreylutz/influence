@@ -2,9 +2,9 @@ import '../Navbar/nav.css';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { IoMoon, IoMoonOutline } from 'react-icons/io5';
+import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import { actionsUser } from '../../actions/actionsUser';
-// import { setTheme } from '../../actions/actionsTheme';
+import { setTheme } from '../../actions/actionsTheme';
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -12,14 +12,14 @@ function NavBar() {
     fetch('http://localhost:4000/api/logout', {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-  })
-  dispatch(actionsUser.logout())
-};
-
+    });
+    dispatch(setTheme('light'));
+    dispatch(actionsUser.logout());
+  };
 
   const theme = useSelector((state) => state.theme);
 
-  // const toggleTheme = () => dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
+  const toggleTheme = () => dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -29,17 +29,19 @@ function NavBar() {
       <nav className="navBar">
         <ul className="ulBar">
           <>
-            {/*<div onClick={toggleTheme}>*/}
-            {/*  {theme === 'light' ? <IoMoonOutline size="14px" /> : <IoMoon size="14px" />}{' '}*/}
-            {/*  <span style={{ marginLeft: '0.75rem' }}>{theme} Theme</span>*/}
-            {/*</div>*/}
+            <div onClick={toggleTheme} className="theme-btn">
+              {theme === 'light' ? <IoMoonOutline size="14px" /> : <IoMoon size="14px" />}{' '}
+              <span style={{ marginLeft: '0.75rem' }}>{theme} Тема</span>
+            </div>
             <li>
-              <a href="/" onClick={handleClose}>
+              <Link to="/" onClick={handleClose} className="nav-link__main">
                 Выйти
-              </a>
+              </Link>
             </li>
             <li>
-              <Link to="/userEdit">Настройки</Link>
+              <Link to="/userEdit" className="nav-link__main">
+                Настройки
+              </Link>
             </li>
           </>
         </ul>

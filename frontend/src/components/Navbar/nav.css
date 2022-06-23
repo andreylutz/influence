@@ -15,8 +15,7 @@ a {
 }
 
 .first__nav {
-  /* background-color: rgb(237, 237, 237); */
-  background-color: #fff;
+  background-color: var(--colors-bg);
   padding: 25px 10px 20px 15px;
   border-radius: 19px;
 }
@@ -31,7 +30,7 @@ a {
 }
 
 .sideBarContainer {
-  padding: 20px 0px 20px 20px;
+  padding: 20px 0 20px 20px;
   max-width: 250px;
   /* height: 700px; */
 }
@@ -53,12 +52,12 @@ a {
 .fb-first {
   /* height: fit-content; */
   min-width: 250px;
-  background-color: rgb(237, 237, 237);
+  background-color: var(--colors-bg);
 }
 
 .fb-second {
   width: 950px;
-  background-color: rgb(236, 236, 236);
+  background-color: var(--colors-bg);
 }
 
 /* .fb-third {
@@ -74,4 +73,12 @@ a {
   font-size: var(--fs-sm);
   cursor: pointer;
   text-transform: capitalize;
+}
+
+.nav-link__main {
+  color: var(--colors-text);
+}
+
+.theme-btn {
+  cursor: pointer;
 }

@@ -19,7 +19,6 @@
   justify-content: space-around;
 }
 
-
 .allUsersBlock {
   display: flex;
   flex-direction: column;
@@ -30,7 +29,7 @@
   margin: 20px;
   padding: 10px;
   width: 250px;
-  background-color: aqua;
+  background-color: var(--colors-bg);
 }
 
 .ulOneUser {
@@ -54,4 +53,3 @@
   font-size: 20px;
   margin-bottom: 20px;
 }
-

@@ -12,13 +12,13 @@ a {
 .userProfile__container {
   padding: 16px;
   padding-bottom: 20px;
-  background-color: rgb(236, 236, 236);
+  background-color: var(--colors-bg);
 }
 
 .upper_container {
   padding: 20px;
   height: 400px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--colors-bg);
   border-radius: 15px;
 }
 
@@ -26,7 +26,7 @@ a {
   position: relative;
   height: 220px;
   margin-bottom: 15px;
-  background-color: rgb(225, 225, 225);
+  background-color: var(--colors-bg);
   border-radius: 19px;
 }
 
@@ -74,7 +74,6 @@ a {
   width: 150px;
   height: 39px;
   border-radius: 7px;
-
 }
 
 .settings__button {
@@ -85,23 +84,22 @@ a {
 }
 
 button {
-  transition: .3s;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: rgb(227, 227, 227);
-  transition: .3s;
+  background-color: var(--colors-bg);
+  transition: 0.3s;
 }
 
 .nav__content {
-  padding-left: 10px
+  padding-left: 10px;
 }
 
 .lower__content-nav {
   height: 20px;
-  background-color: #fff;
+  background-color: var(--colors-bg);
 }
-
 
 .navigation__list {
   display: flex;
@@ -115,16 +113,13 @@ button:hover {
   font-size: 17px;
   font-weight: bold;
   color: rgb(62, 62, 62);
-  transition: .3s
+  transition: 0.3s;
 }
 
 .navigation__link:hover {
   color: rgb(193, 193, 193);
-  transition: .3s
+  transition: 0.3s;
 }
-
-
-
 
 /* User__status */
 
@@ -134,7 +129,7 @@ button:hover {
   padding: 10px 16px;
   min-height: 50vh;
 
-  background-color: rgb(236, 236, 236);
+  background-color: var(--colors-bg);
 }
 
 .user__status-box {
@@ -142,7 +137,7 @@ button:hover {
   min-width: 300px;
   margin-right: 16px;
   padding: 20px 20px 20px 30px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--colors-bg);
   border-radius: 15px;
 }
 
@@ -160,7 +155,7 @@ button:hover {
 .user__status-wall {
   padding: 24px;
   margin-bottom: 20px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--colors-bg);
   border-radius: 15px;
 }
 
@@ -169,7 +164,7 @@ button:hover {
   margin-bottom: 20px;
 }
 .user__status-header {
-  padding: 10px 0  5px 20px;
+  padding: 10px 0 5px 20px;
   margin-bottom: 20px;
   width: 100%;
   border-radius: 9px;
@@ -191,17 +186,15 @@ button:hover {
 .user__status-notes {
   width: 100%;
   padding: 24px;
-  background-color: #fff;
+  background-color: var(--colors-bg);
   border-radius: 15px;
 }
-
-
 
 /*---------user__friends-container----------*/
 
 .user__friends-container {
   padding: 10px 16px;
-  background-color: rgb(236, 236, 236);
+  background-color: var(--colors-bg);
 }
 
 .user__friends-box {
@@ -211,6 +204,6 @@ button:hover {
   min-height: 400px;
   padding: 20px 20px 20px 30px;
   height: fit-content;
-  background-color: #fff;
+  background-color: var(--colors-bg);
   border-radius: 15px;
 }

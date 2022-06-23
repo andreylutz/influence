@@ -6,7 +6,7 @@
   margin-top: 7px;
   padding: 15px;
 
-  background-color: rgb(237, 237, 237);
+  background-color: var(--colors-bg);
   border-radius: 19px;
 }
 
@@ -14,7 +14,7 @@
   padding: 20px;
   min-height: 290px;
   border-radius: 19px;
-  background-color: #ffffff;
+  background-color: var(--colors-bg);
 }
 
 .eventInfo__btn {
