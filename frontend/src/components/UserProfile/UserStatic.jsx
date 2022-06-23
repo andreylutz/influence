@@ -21,6 +21,7 @@ export default function UserStatic() {
       });
       const json = await response.json();
       // console.log(json[0]);
+      console.log(json);
       setUser(json[0]);
 
     }

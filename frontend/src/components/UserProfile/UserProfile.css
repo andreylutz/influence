@@ -151,16 +151,48 @@ button:hover {
   margin-bottom: 20px;
 }
 
-.user__status-wall {
+.user__status-rigth {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 20px 20px 20px 30px;
+}
+
+.user__status-wall {
+  padding: 24px;
+  margin-bottom: 20px;
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
 }
 
 .user__status-title {
-  margin-top: 10px;
+  color: rgb(105, 105, 105);
   margin-bottom: 20px;
+}
+.user__status-header {
+  padding: 10px 0  5px 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 9px;
+  border: 1px solid black;
+}
+
+.user__textarea {
+  border-radius: 19px;
+  padding: 10px 0 5px 20px;
+  margin-bottom: 10px;
+}
+
+.user__status-btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.user__status-notes {
+  width: 100%;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 15px;
 }
 
 
