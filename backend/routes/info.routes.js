@@ -4,6 +4,7 @@ const { User_about, User, Company_about, Skill } = require('../db/models');
 infoRouter.post('/', async (req, res) => {
   const user_about = await User_about.findAll({ where: { user_id: req.body.us }, raw: true });
   res.json(user_about);
+  // console.log(user_about);
 });
 
 infoRouter.post('/', async (req, res) => {

@@ -1,12 +1,12 @@
 import { instance } from './index';
-import { actionsMyEvents } from '../actions/actionsMyEvents';
+import { actionNotes } from '../actions/actionNotes';
 
-export const getEvents = () => {
+export const getNotes = () => {
   return async (dispatch) => {
     try {
-      const response = await instance.get(`/events`);
+      const response = await instance.get(`/info`);
 
-      dispatch(actionsMyEvents.setMyEvents(response.data.data));
+      dispatch(actionNotes.setMyEvents(response.data.data));
     } catch (e) {
       alert(e.response.data.detail);
     }
