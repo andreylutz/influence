@@ -2,6 +2,7 @@ const infoRouter = require('express').Router();
 const { User_about, User, Company_about, Skill } = require('../db/models');
 
 infoRouter.post('/', async (req, res) => {
+  console.log(`===>${req.body}`);
   const user_about = await User_about.findAll({ where: { user_id: req.body.us }, raw: true });
   res.json(user_about);
 });

@@ -5,12 +5,11 @@ const { Key } = require('../db/models');
 emailRouter.route('/')
   .post(async (req, res) => {
     const { FrendsEmail, uniKey, mainEmail } = req.body;
-
     await Key.create({
       uniquekey: uniKey,
     });
     // const maillist = `${FrendsEmail}`;
-
+    console.log(req.body);
     const message = {
       to: `${FrendsEmail}`,
       subject: `Приглашение в INFLUENCE от ${mainEmail}.`,

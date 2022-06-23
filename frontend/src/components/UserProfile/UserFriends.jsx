@@ -14,7 +14,7 @@ export default function UserFriends() {
   const nav = useNavigate();
   const mainEmail = useSelector(state => state.user.email)
   const [mail, setMail] = useState("frends__img-none");
-
+  
   const {
     register,
     formState: {
@@ -22,12 +22,12 @@ export default function UserFriends() {
     },
     handleSubmit,
     reset,
-    } = useForm({
-      mode: 'onBlur',
-    });
-
-    const handleClose = async (data) => {
-
+  } = useForm({
+    mode: 'onBlur',
+  });
+  
+  const handleClose = async (data) => {
+    
       const response = await fetch('http://localhost:4000/api/email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -40,9 +40,8 @@ export default function UserFriends() {
     console.log(user.message)
       dispatch(actionsUser.setUser(user));
       dispatch(actionsUser.initUser());
-      // nav('/');
       reset()
-      setMail((mail) => user.message)
+      setMail((mail) => 'frends__img-block')
       setTimeout(() => setMail((mail) => "frends__img-none"), 3500)
   }
 
