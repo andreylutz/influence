@@ -17,7 +17,7 @@ export const getMyEvents = () => {
   return async (dispatch) => {
     try {
       const response = await instance.get(`/events/my`);
- 
+
       dispatch(actionsMyEvents.setMyEvents(response.data.data));
     } catch (e) {
       alert(e.response.data.detail);
@@ -43,6 +43,27 @@ export const addEvent = (eventName, eventDescription, location, picture, eventDa
     } catch (e) {
       alert(e.response.data.detail);
     }
+  };
+};
+
+// Edit Event
+export const editEvent = (data) => {
+  return async (dispatch) => {
+    try {
+      const response = await instance.put(`/events/${data.idEvent}/update`, {
+        data: {
+          name: data.eventName,
+          description: data.eventDescription,
+          location: data.location,
+          picture: data.picture,
+          date: data.eventDate,
+        },
+      });
+
+      // console.log(response.data.data[1][0]);
+
+      dispatch(actionsMyEvents.editEvent(response.data.data[1][0]));
+    } catch (e) {}
   };
 };
 

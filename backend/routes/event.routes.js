@@ -43,6 +43,26 @@ eventRouter.post('/new', async (req, res) => {
   res.json({ data: event });
 });
 
+// Edit Event
+eventRouter.put('/:id/update', async (req, res) => {
+  const { name, description, location, picture, date } = req.body.data;
+  // const { user } = req.session;
+  const eventId = Number(req.params.id);
+
+  const event = await Event.update(
+    {
+      name,
+      description,
+      location,
+      picture,
+      date,
+    },
+    { where: { id: eventId }, returning: true },
+  );
+
+  res.json({ data: event });
+});
+
 // Remove Event
 eventRouter.delete('/:id', async (req, res) => {
   const { id } = req.session.user;
