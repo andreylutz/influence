@@ -68,3 +68,10 @@ a {
 .aside__conteiner {
   padding: 20px;
 }
+
+.modeSwitcher {
+  color: var(--colors-text);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  text-transform: capitalize;
+}
