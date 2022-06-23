@@ -1,3 +1,4 @@
+/* eslint-disable no-sequences */
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import OneCompanyCard from "./OneCompanyCard";
@@ -24,7 +25,6 @@ function AllUsersPage() {
   // ];
   const dispatch = useDispatch();
   const allCategories = useSelector((state) => state.settings.list);
-  const roleUser = 'user';
   console.log('dd=======>', allCategories);
 
   useEffect(() => {
@@ -45,11 +45,16 @@ function AllUsersPage() {
     <div className="allUsersBlock" >
       {
         allCategories.map((oneUser) => (
-          (oneUser.role === 'user') ?
-            <OneUserCard key={oneUser.id} oneUser={oneUser} />
-            :
-            <OneCompanyCard key={oneUser.id} oneCompany={oneUser} />
-        ))
+          // console.log('useeeeeeeeeeer',oneUser['User_about.name']),
+          // console.log(oneUser.role)
+          oneUser.role === 'user' ?
+      (oneUser['User_about.name'] !== null && oneUser['User_about.name'] !== "") &&
+      <OneUserCard key={oneUser.id} oneUser={oneUser} />
+      :
+      // console.log('compaaaaaany',oneUser['Company_about.companyName'])
+      (oneUser['Company_about.companyName'] !==null && oneUser['Company_about.companyName'] !== "") &&
+      <OneCompanyCard key={oneUser.id} oneCompany={oneUser} />
+      ))
       }
     </div>
   );
