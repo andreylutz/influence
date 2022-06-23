@@ -1,12 +1,28 @@
 const bcrypt = require('bcryptjs');
 const regRouter = require('express').Router();
-const { User } = require('../db/models');
+const { User, Key } = require('../db/models');
 
 regRouter.route('/')
   .post(async (req, res) => {
+    let key;
+    try {
+      key = await Key.findOne({
+        where: { uniquekey: req.body.userKey },
+      });
+    } catch (error) {
+      res
+        .status(502)
+        .json({ message: error.message });
+    }
+    if (!key) {
+      res
+        .status(403)
+        .json({ message: 'Неверный ключ регистрации.' });
+      return;
+    }
     const mail = req.body.userEmail;
     const roles = req.body.role;
-    if (req.body.userPassword.length >= 8) {
+    if (req.body.userPasswordRepl === req.body.userPassword) {
       const pass = await bcrypt.hash(req.body.userPassword, 5);
       try {
         const user = await User.create({
@@ -18,11 +34,11 @@ regRouter.route('/')
         res
           .status(501)
           .json({ message: 'Пользователь с таким именем уже зарегестрирован.' });
-        // .send('<script>alert(\'Пользователь с таким именем уже зарегестрирован.\')</script>');
       }
     } else {
       res
-        .status(404);
+        .status(404)
+        .json({ message: 'Пароли не совпадают.' });
     }
   });
 

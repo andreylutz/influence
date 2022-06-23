@@ -2,8 +2,6 @@ const infoRouter = require('express').Router();
 const { User_about, User, Company_about, Skill } = require('../db/models');
 
 infoRouter.post('/', async (req, res) => {
-  // const user_about = await User_about.findAll({ where: { user_id: req.body.us }, raw: true });
-  // const company_about = await Company_about.findAll({ where: { user_id: req.body.us }, raw: true });
   const findUserAbout = await User_about.findOne(
     { where: { user_id: req.body.us }, raw: true },
   );

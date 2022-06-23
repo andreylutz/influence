@@ -205,6 +205,10 @@ button:hover {
 }
 
 .user__friends-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
   padding: 20px 20px 20px 30px;
   height: fit-content;
   background-color: #fff;

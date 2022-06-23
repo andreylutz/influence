@@ -1,0 +1,32 @@
+.frends__img-none {
+  opacity: 0;
+  display: none;
+  width: 30%;
+  padding: 0;
+}
+
+.frends__img-block {
+  display: block;
+  width: 30%;
+  padding: 0;
+}
+
+.frends-pols{
+  width: 300px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+
+.frends-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  transition: .4;
+}
+
+.errorFrends {
+  margin: auto;
+}
