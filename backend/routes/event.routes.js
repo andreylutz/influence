@@ -27,17 +27,38 @@ eventRouter.get('/my', async (req, res) => {
 });
 
 // Add Event
-eventRouter.post('/new', async (req) => {
-  const { name, description, location, date } = req.body.data;
+eventRouter.post('/new', async (req, res) => {
+  const { name, description, location, picture, date } = req.body.data;
   const { user } = req.session;
 
-  await Event.create({
+  const event = await Event.create({
     name,
     description,
     location,
+    picture,
     date,
     user_id: user.id,
   });
+
+  res.json({ data: event });
+});
+
+// Remove Event
+eventRouter.delete('/:id', async (req, res) => {
+  const { id } = req.session.user;
+  const eventId = Number(req.params.id);
+
+  const findEvent = await Event.findOne({ where: { id: eventId } });
+
+  if (Number(id) === findEvent.user_id) {
+    if (findEvent) {
+      await findEvent.destroy();
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  }
+  return res.status(401).end();
 });
 
 module.exports = eventRouter;

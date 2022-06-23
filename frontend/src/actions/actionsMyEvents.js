@@ -1,4 +1,5 @@
 export const SET_EVENTS = 'SET_EVENTS';
+export const ADD_EVENT = 'ADD_EVENT';
 export const REMOVE_EVENT = 'REMOVE_EVENT';
 
 export const actionsMyEvents = {
@@ -6,11 +7,12 @@ export const actionsMyEvents = {
     type: SET_EVENTS,
     payload: myEvents,
   }),
-  removeMyEvent: (idUser, idEvent) => ({
+  addEvent: (event) => ({
+    type: ADD_EVENT,
+    payload: event,
+  }),
+  removeMyEvent: (idEvent) => ({
     type: REMOVE_EVENT,
-    payload: {
-      idUser,
-      idEvent,
-    },
+    payload: idEvent,
   }),
 };

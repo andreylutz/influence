@@ -14,6 +14,8 @@ const userReducer = (state = initialState, action) => {
         role: action.payload.role,
       };
     case LOGOUT_USER:
+      localStorage.clear();
+
       return { ...state, auth: false, id: null, email: '', role: '' };
     default:
       return state;

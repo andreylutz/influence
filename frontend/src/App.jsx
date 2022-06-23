@@ -1,17 +1,26 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // React Components
 import NavBar from './components/Navbar/NavBar';
 import SideBar from './components/Navbar/SideBar';
 import Main from './components/Main/Main';
 import { useEffect } from 'react';
+import { auth } from './api/user';
 
 function App() {
-  const user = useSelector((state) => state.user.auth);
+  const userAuth = useSelector((state) => state.user.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!userAuth) {
+      dispatch(auth());
+    }
+  }, [dispatch, userAuth]);
+
   return (
     <>
-      {!user ? <Main path="/main" /> : <NavBar />}
-      {user && <SideBar />}
+      {!userAuth ? <Main path="/main" /> : <NavBar />}
+      {userAuth && <SideBar />}
     </>
   );
 }
