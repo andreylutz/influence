@@ -176,7 +176,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: flex-end; */
   min-height: 400px;
   padding: 20px 20px 20px 30px;
   height: fit-content;

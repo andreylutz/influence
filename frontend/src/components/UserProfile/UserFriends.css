@@ -1,50 +1,32 @@
 .frends__img-none {
+  opacity: 0;
   display: none;
-  position: relative;
-  right: 38%;
-  bottom: 30px;
   width: 30%;
   padding: 0;
 }
 
 .frends__img-block {
   display: block;
-  position: relative;
-  right: 38%;
-  bottom: 30px;
   width: 30%;
   padding: 0;
 }
 
-.frends-click{
-    cursor: pointer;
-    border: 1px solid #cecece;
-    background: #f6f6f6;
-    box-shadow: inset 0px 20px 20px #ffffff;
-    border-radius: 8px;
-    padding: 8px 14px;
-    width: 120px;
-}
-
-.frends-click:hover {
-	box-shadow: inset 0px -20px 20px #ffffff;
-}
-
-.frends-click:active {
-	margin-top: 1px;
-	margin-bottom: -1px;
-	zoom: 1;
-}
-
-.frends-click:focus
-{
-	outline:none;
-} 
-
 .frends-pols{
-  width: 100%;
+  width: 300px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+  margin-bottom: 20px;
+}
+
+.frends-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  transition: .4;
+}
+
+.errorFrends {
+  margin: auto;
 }

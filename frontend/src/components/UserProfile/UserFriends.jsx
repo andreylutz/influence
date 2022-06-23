@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { actionsUser } from '../../actions/actionsUser';
 import { v4 as uuidv4 } from 'uuid';
 import './UserFriends.css';
+import Button from'../UI/Button';
 
 export default function UserFriends() {
 
@@ -24,7 +25,7 @@ export default function UserFriends() {
     } = useForm({
       mode: 'onBlur',
     });
-//'frends__img-block'
+
     const handleClose = async (data) => {
 
       const response = await fetch('http://localhost:4000/api/email', {
@@ -49,7 +50,6 @@ export default function UserFriends() {
     <div className='user__friends-container'>
       <div className="user__friends-box">
           <h3>Отправить приглашение</h3>
-          <img className={mail} src='http://www.maxphoto.lu/contact-form/files/mikaflakes_mailicon_2.gif'/>
         <form onSubmit={handleSubmit(handleClose)} className="frends-body">
           <div className='errorFrends' style={{height: 40,}}>{errors?.FrendsEmail && <p style={{color: 'green',fontSize: '13px'}}>{errors?.FrendsEmail?.message || "Error!"}</p>}</div>
           <input
@@ -64,22 +64,10 @@ export default function UserFriends() {
               className="frends-pols"
               placeholder="Введите e-mail"
             />
-          <button
-              type='submit'
-              className="frends-click"
-              name="frends-Batton"
-            >
-              Отправить
-            </button>
+            <Button title={'Отправить'}/>
         </form>
+            <img className={mail} src='http://www.maxphoto.lu/contact-form/files/mikaflakes_mailicon_2.gif'/>
         </div>
-    {/* <div className="user__friends-box">
-        <ul>
-          {
-          
-          }
-        </ul>
-      </div> */}
     </div>
   )
 }
