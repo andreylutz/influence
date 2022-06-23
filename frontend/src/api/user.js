@@ -10,6 +10,8 @@ export const registration = (email, password) => {
       });
       alert('Регистрация прошла успешна!');
 
+      localStorage.setItem('token', JSON.stringify(response));
+
       dispatch(actionsUser.setUser(response.data));
       dispatch(actionsUser.initUser());
     } catch (e) {
@@ -26,6 +28,8 @@ export const login = (email, password) => {
         email,
         password,
       });
+
+      localStorage.setItem('token', JSON.stringify(response));
 
       dispatch(actionsUser.setUser(response.data));
       dispatch(actionsUser.initUser());

@@ -7,8 +7,6 @@ import MyEvent from '../MyEvent/MyEvent';
 import './MyEvents.css';
 
 export const MyEvents = () => {
-  // const [update, setUpdate] = useState(false);
-
   const myEvents = useSelector((state) => state.myEvent.list);
   const userRole = useSelector((state) => state.user.role);
 
@@ -82,7 +80,7 @@ export const MyEvents = () => {
                 id="eventDate"
                 className="form-control"
                 name="eventDate"
-                type="datetime-local"
+                type="date"
                 required
                 placeholder="Введите дату Мероприятия"
               />
@@ -96,9 +94,11 @@ export const MyEvents = () => {
 
       <div>
         <ul className="my-events-list">
-          {myEvents.map((el) => (
-            <MyEvent event={el} key={el.id} />
-          ))}
+          {myEvents.length ? (
+            myEvents.map((el) => <MyEvent event={el} key={el.id} />)
+          ) : (
+            <p>Добавьте новое событие</p>
+          )}
         </ul>
       </div>
     </div>

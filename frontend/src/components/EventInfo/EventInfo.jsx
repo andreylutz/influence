@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './EventInfo.css';
@@ -7,21 +7,21 @@ import { removeEvent } from '../../api/Events';
 
 const EventInfo = () => {
   const { id } = useParams();
-  // const nav = useNavigate();
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const userid = useSelector((state) => state.user.id);
   const userRole = useSelector((state) => state.user.role);
 
-  const event = useSelector((state) =>
-    state.myEvent.list.find((el) => el.id === Number(id)),
-  );
+  const eventList = useSelector((state) => state.myEvent.list);
+  const event = eventList.find((el) => el.id === Number(id));
 
   const Subscribe = () => {};
 
   const delEvent = () => {
     dispatch(removeEvent(id));
-    // nav('/myevent');
+    navigate('/');
   };
 
   return (
