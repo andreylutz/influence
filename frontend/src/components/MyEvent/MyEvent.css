@@ -1,10 +1,37 @@
 .my-event {
+  position: relative;
   min-width: 300px;
   max-width: 300px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  min-height: 400px;
+
+  margin-bottom: 40px;
   list-style-type: none;
-  padding: 10px;
-  border: 1px solid grey;
+
   border-radius: 7px;
+}
+
+.my-event__name,
+.my-event__location,
+.my-event__date {
+  position: absolute;
+}
+
+.my-event__name {
+  bottom: 95px;
+  color: azure;
+  left: 5%;
+  /* font-weight: 800; */
+  
+  font-size: 30px;
+}
+
+.my-event__location {
+  bottom: 60px;
+  color: azure;
+  left: 5%;
+}
+.my-event__date {
+  bottom: 40px;
+  color: azure;
+  left: 5%;
 }

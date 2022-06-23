@@ -138,36 +138,36 @@ function CompanyFormEdit() {
   return (
 
     <>
-        <h1 className="hOneTag">Страница профиля компании</h1><div className="twoColumns">
+        <h1 className="hOneTag">Данные компании:</h1><div className="twoColumns">
       <div className="firstCol">
         <form onSubmit={editCompanyForm}>
           <ul className="ulUserEdit">
 
             <li>
               <label> Логотип: <br />
-                <input onChange={inpVal} value={logInpState} type="text" name="logo" required />
+                <input className="inp1" onChange={inpVal} value={logInpState} type="text" name="logo" required />
               </label>
             </li>
 
             <li>
               <label> Название: <br />
-                <input onChange={inpVal} value={nameInpState} type="text" name="companyName" required />
+                <input  className="inp2" onChange={inpVal} value={nameInpState} type="text" name="companyName" required />
               </label>
             </li>
 
             <li>
               <label> Локация: <br />
-                <input type="text" onChange={inpVal} value={locInpState} name="location" required />
+                <input className="inp2" type="text" onChange={inpVal} value={locInpState} name="location" required />
               </label>
             </li>
 
             <li>
               <label> Интересы: <br />
-                <input type="text" onChange={inpVal} value={skillInpState} name="skill" required />
+                <input className="inp2" type="text" onChange={inpVal} value={skillInpState} name="skill" required />
               </label>
             </li>
           </ul>
-          <button type="submit">Отправить</button>
+          <button className="company-btn" type="submit">Отправить</button>
 
         </form>
       </div>

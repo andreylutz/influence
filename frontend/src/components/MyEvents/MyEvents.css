@@ -1,6 +1,6 @@
 .container-event {
   /*margin-top: 7px;*/
-  margin-right: 20px;
+  /* margin-right: 20px; */
   padding: 5px 15px;
 
   background-color: rgb(237, 237, 237);
@@ -9,11 +9,10 @@
 .my-events-list {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   flex-wrap: wrap;
-
-  margin-top: 16px;
-  background-color: #ffffff;
+  /* margin-top: 16px; */
+  /* background-color: #ffffff; */
   padding: 20px;
   border-radius: 19px;
 }

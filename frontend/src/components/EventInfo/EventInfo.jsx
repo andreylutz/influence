@@ -17,7 +17,7 @@ const EventInfo = () => {
   const eventList = useSelector((state) => state.myEvent.list);
   const event = eventList.find((el) => el.id === Number(id));
 
-  const Subscribe = () => {};
+  const Subscribe = () => { };
 
   const delEvent = () => {
     dispatch(removeEvent(id));
@@ -29,17 +29,17 @@ const EventInfo = () => {
       <div className="eventInfo">
         {event ? (
           <>
-            <h4 className="eventInfo__title">Название: {event.name}</h4>
-            <div className="eventInfo__desc">Описание: {event.description}</div>
+            <h4 className="eventInfo__title">{event.name}</h4>
             <p className="eventInfo__img">
-              <img style={{ width: '250px' }} src={event.picture} alt="" />
+              <img style={{ width: '55%', borderRadius: '15px' }} src={event.picture} alt="" />
             </p>
-            <p>Местоположение: {event.location}</p>
+            <div className="eventInfo__desc"> {event.description}</div>
+            <p>Локация: {event.location}</p>
 
             <p className="eventInfo__date">Дата: {event.date}</p>
-            <button className="eventInfo__btn" onClick={Subscribe}>
+            {/* <button className="eventInfo__btn" onClick={Subscribe}>
               Подписаться
-            </button>
+            </button> */}
             {event.user_id === userid && userRole === 'company' && (
               <button className="eventInfo__btn" onClick={delEvent}>
                 Удалить

@@ -12,9 +12,9 @@ function NavBar() {
     fetch('http://localhost:4000/api/logout', {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-  })
-  dispatch(actionsUser.logout())
-};
+    })
+    dispatch(actionsUser.logout())
+  };
 
 
   const theme = useSelector((state) => state.theme);
@@ -26,20 +26,16 @@ function NavBar() {
   }, [theme]);
   return (
     <div className="headerContainer">
+      <Link to={'/info'} className="mainLogo"></Link>
       <nav className="navBar">
         <ul className="ulBar">
           <>
-            {/*<div onClick={toggleTheme}>*/}
-            {/*  {theme === 'light' ? <IoMoonOutline size="14px" /> : <IoMoon size="14px" />}{' '}*/}
-            {/*  <span style={{ marginLeft: '0.75rem' }}>{theme} Theme</span>*/}
-            {/*</div>*/}
             <li>
               <a href="/" onClick={handleClose}>
                 Выйти
               </a>
             </li>
             <li>
-              <Link to="/userEdit">Настройки</Link>
             </li>
           </>
         </ul>

@@ -4,3 +4,11 @@
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+
+
+.my-event__name {
+  bottom: 95px;
+  color: azure;
+  left: 5%;
+  font-size: 30px;
+}

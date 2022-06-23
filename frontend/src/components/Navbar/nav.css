@@ -12,6 +12,9 @@ a {
   padding: 5px 50px;
   height: 65px;
   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .first__nav {
@@ -75,4 +78,17 @@ a {
   font-size: var(--fs-sm);
   cursor: pointer;
   text-transform: capitalize;
+}
+
+.mainLogo {
+  background-image: url('');
+}
+
+.mainLogo {
+  background-image: url('./img/Screenshot\ 2022-06-23\ at\ 21.27.44.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  padding-left: 50px;
 }

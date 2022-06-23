@@ -15,8 +15,56 @@
 }
 
 .twoColumns {
+  margin-left: 20px;
   display: flex;
-  justify-content: space-around;
+}
+
+.firstCol{
+  margin-right: 50px;
+}
+
+.secondCol {
+  display: inline-block;
+}
+
+.inp1,
+.inp2,
+.inp3,
+.inp4 {
+  width: 300px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+
+.company-btn {
+  cursor: pointer;
+  border: 1px solid #cecece;
+  background: #f6f6f6;
+  box-shadow: inset 0px 20px 20px #ffffff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  width: 100px;
+  height: 40px;
+
+}
+
+.company-btn {
+  box-shadow: inset 0px -20px 20px #ffffff;
+}
+
+.company-btn {
+  margin-top: 1px;
+  margin-bottom: -1px;
+  zoom: 1;
+}
+
+.company-btn:focus {
+  outline: none;
 }
 
 
@@ -30,7 +78,6 @@
   margin: 20px;
   padding: 10px;
   width: 250px;
-  background-color: aqua;
 }
 
 .ulOneUser {
@@ -49,9 +96,10 @@
   width: 150px;
   text-align: center;
 }
+
 .hOneTag {
   margin-top: 30px;
   font-size: 30px;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
-

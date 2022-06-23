@@ -15,22 +15,24 @@ const MyEvent = ({ event }) => {
   };
 
   return (
-    <li className="my-event">
-      <h5 className="my-event__name">{event.name}</h5>
-      <p className="my-event__location">{event.location}</p>
-      <p className="my-event__img">
-        <img style={{ width: '100px' }} src={event.picture} alt="" />
-      </p>
-      <p className="my-event__date">Дата: {event.date}</p>
-      <Link className="my-event__link" to={`/myevent/${event.id}`}>
-        Информация
-      </Link>
-      {event.user_id === userid && userRole === 'company' && (
-        <button className="eventInfo__btn" onClick={delEvent}>
-          Удалить
-        </button>
-      )}
-    </li>
+    <Link className="my-event__link" to={`/myevent/${event.id}`}>
+      <li className="my-event">
+        <p className="my-event__img">
+          <img style={{ width: '100%', height: '400px', borderTopLeftRadius: '15px', borderTopRightRadius: '15px',borderBottomLeftRadius: '15px', borderBottomRightRadius: '15px', }} src={event.picture} alt="" />
+        </p>
+        <h2 className="my-event__name">{event.name}</h2>
+        <p className="my-event__location">{event.location}</p>
+        <p className="my-event__date">Дата: {event.date}</p>
+        
+        {/* {
+          event.user_id === userid && userRole === 'company' && (
+            <button className="eventInfo__btn" onClick={delEvent}>
+              Удалить
+            </button>
+          )
+        } */}
+      </li >
+    </Link>
   );
 };
 

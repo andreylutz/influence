@@ -13,7 +13,7 @@ export default function UserFriends() {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const mainEmail = useSelector(state => state.user.email)
-  
+
   const [mail, setMail] = useState("frends__img-none");
   console.log(mainEmail)
   const {
@@ -50,8 +50,9 @@ export default function UserFriends() {
     <div className='user__friends-container'>
       <div className="user__friends-box">
         <h4>Отправить приглашение</h4>
-        <form onSubmit={handleSubmit(handleClose)} className="frends-body">
-          <div className='errorFrends' style={{ height: 40, }}>{errors?.FrendsEmail && <p style={{ color: 'green', fontSize: '13px' }}>{errors?.FrendsEmail?.message || "Error!"}</p>}</div>
+
+        <form onSubmit={handleSubmit(handleClose)} className="frends-body" >
+          <div className='errorFrends' style={{ height: 30, }}>{errors?.FrendsEmail && <p style={{ color: 'green', fontSize: '13px' }}>{errors?.FrendsEmail?.message || "Error!"}</p>}</div>
           <input
             {...register('FrendsEmail', {
               required: 'Поле обязательно к заполнению.',
@@ -67,6 +68,7 @@ export default function UserFriends() {
           <Button title={'Отправить'} />
         </form>
         <img className={mail} src='http://www.maxphoto.lu/contact-form/files/mikaflakes_mailicon_2.gif' />
+        <span style={{ maxWidth: '350px', fontSize: '13px' }}>*Выслав это приглашение, Вы позовете в нашу большую семью еще одного человека, который станет ее частью</span>
       </div>
     </div>
   )

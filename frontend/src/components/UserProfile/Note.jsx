@@ -36,7 +36,7 @@ export default function Note({ el }) {
         <p>{el.description}</p>
       </div>
       <div>
-        <button className='singleBtn' onClick={delItem}>delete</button>
+        <button className='singleBtn' onClick={delItem}>Удалить</button>
       </div>
     </li>
   )
