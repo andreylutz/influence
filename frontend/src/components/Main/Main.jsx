@@ -5,7 +5,6 @@ import styles from './Main.module.css';
 
 const Main = () => {
 
-
   return (
     <div className={styles.main}>
       <span className={styles.influnce}>INFLUENCE</span>
@@ -35,8 +34,13 @@ const Main = () => {
           <p className={styles.texts}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus hic voluptate nulla architecto atque asperiores, exercitationem repellendus at? In esse debitis aspernatur fuga error quae dolorum harum sit! Voluptatibus, quos.</p>
         </div>
       </div>
-
       <div className={`${styles.row} ${styles.rowBackground} ${styles.skew}`}>
+        <div className={styles.column}>
+          <h2 className={styles.titles}>Title</h2>
+          <p className={styles.texts}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum consectetur facilis laboriosam cum soluta. Facilis eos, eveniet repellendus eius saepe perferendis! Dolores minus ratione accusantium? Et modi mollitia, temporibus hic voluptate nulla architecto atque asperiores, exercitationem repellendus at? In esse debitis aspernatur fuga error quae dolorum harum sit! Voluptatibus, quos.</p>
+        </div>
+      </div>
+      {/* <div className={`${styles.row} ${styles.rowBackground} ${styles.skew}`}>
         <div className={styles.column}>
           <div className={styles.media}>
             <div className={styles.mediaImg}>
@@ -48,8 +52,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-      </div>
-
+      </div> */}
     </div>
   )
 };

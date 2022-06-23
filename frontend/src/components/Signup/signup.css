@@ -44,6 +44,7 @@
 }
 /* свойства для блока, содержащего контент модального окна */ 
 .signup-content {
+  padding-left: 25px;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -85,14 +86,16 @@
   border-bottom: 1px solid #eceeef;
 }
 .signup-title {
+  font-weight: 900;
+  color: #4e6c6e;
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.5;
-  font-size: 1.25rem;
+  font-size: 30px;
   font-weight: 500;
 }
 /* свойства для кнопки "Закрыть" */
-.close {
+.signup-close {
   float: right;
   font-family: sans-serif;
   font-size: 24px;
@@ -104,8 +107,8 @@
   text-decoration: none;
 }
 /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
-.close:focus, .close:hover {
-  color: #000;
+.signup-close:focus, .signup-close:hover {
+  color: rgb(255, 0, 0);
   text-decoration: none;
   cursor: pointer;
   opacity: .75;
@@ -113,11 +116,11 @@
 /* свойства для блока, содержащего основное содержимое окна */
 .signup-body {
   display: flex;
-  /* position: relative; */
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
-  height: 300px;
+  height: 500px;
+  width: 450px;
   flex: 1 1 auto;
   padding: 15px;
   overflow: auto;
@@ -126,19 +129,19 @@
   align-items: stretch;
 }
 
-.pols {
+.signup-pols {
   width: 100%;
   height: 42px;
   padding-left: 10px;
-  border: 2px solid #7BA7AB;
+  border: 0px solid #7BA7AB;
   border-radius: 5px;
   outline: none;
   background: #ffffff;
   color: #000000;
 }
 
-.click {
-  margin-top: 20px;
+/* .signup-click {
+  margin-top: 30px;
   font-family: FontAwesome;
   font-size: 16px;
   position: relative;
@@ -151,16 +154,16 @@
   cursor: pointer;
 }
 
-.click:hover {
+.signup-click:hover {
   background: #7BA7AB;
   color: #ffffff;
-}
+} */
 
-.selectorius {
+.signup-selectorius {
   width: 100%;
   height: 42px;
   padding-left: 10px;
-  border: 2px solid #7BA7AB;
+  border: 0px solid #7BA7AB;
   border-radius: 5px;
   outline: none;
   background: #F9F0DA;
@@ -172,8 +175,3 @@
     font-size: 15px;
     padding-left: 30px;
 }
-
-	/* background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat; */
-
-
-	/* background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat; */
