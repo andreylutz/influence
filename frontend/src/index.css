@@ -50,3 +50,10 @@ body {
   font-weight: var(--fw-light);
   background-color: var(--colors-bg);
 }
+
+input,
+textarea,
+button {
+  color: var(--colors-text);
+  background-color: var(--colors-bg);
+}

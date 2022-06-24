@@ -25,7 +25,7 @@ const EventInfo = () => {
 
     if (del) {
       dispatch(removeEvent(id));
-      navigate('/');
+      navigate('/myevent');
     }
   };
 
@@ -46,7 +46,7 @@ const EventInfo = () => {
     };
 
     dispatch(editEvent(data));
-    navigate('/');
+    navigate(`/myevent/${id}`);
 
     e.target.reset();
   };

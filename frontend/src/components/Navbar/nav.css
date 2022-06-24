@@ -11,13 +11,14 @@ a {
 .headerContainer {
   padding: 5px 50px;
   height: 65px;
-  border: 1px solid black;
+  border: 1px solid var(--colors-text);
 }
 
 .first__nav {
   background-color: var(--colors-bg);
   padding: 25px 10px 20px 15px;
   border-radius: 19px;
+  border: 1px solid var(--colors-text);
 }
 
 .ulBar {

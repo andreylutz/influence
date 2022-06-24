@@ -19,6 +19,7 @@ a {
   padding: 20px;
   height: 400px;
   background-color: var(--colors-bg);
+  border: 1px solid var(--colors-text);
   border-radius: 15px;
 }
 

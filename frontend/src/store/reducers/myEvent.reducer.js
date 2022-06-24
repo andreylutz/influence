@@ -16,10 +16,10 @@ const myEventReducer = (state = initialState, action) => {
     case ADD_EVENT:
       return { ...state, list: [action.payload, ...state.list] };
     case EDIT_EVENT:
-      // console.log('Start Edit');
+      console.log('Start Edit', action.payload);
       return {
         ...state,
-        list: state.map((el) =>
+        list: state.list.map((el) =>
           el.id === action.payload.id
             ? {
                 ...el,
